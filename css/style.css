@@ -7,5 +7,8 @@ body {
     height: 100vh;
     display: grid;
     background-color: pink;
+    background-image: url("/img/background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
     margin-bottom: 45vmin;
 }
