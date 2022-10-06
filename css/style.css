@@ -3,6 +3,9 @@
 }
 
 body {
+    justify-content: center;
+    height: 100vh;
+    display: grid;
     background-color: pink;
     margin-bottom: 45vmin;
 }
