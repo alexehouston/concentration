@@ -11,12 +11,35 @@ body {
     background-attachment: fixed;
 }
 
+.concentration {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1 1 20%;
+}
+
+.card:active {
+
+}
+
+.card.flip {
+    
+}
+
+.front, .back {
+    height: 50%;
+    width: auto;
+}
+
 button {
-    margin-top: 5vmin;
     background: none;
     border: none;
+    padding: 5vmin;
     color: white;
     font-size: 3vmin;
-    letter-spacing: 10px;
+    letter-spacing: 2vmin   ;
     font-family: 'jost', sans-serif;
 }
