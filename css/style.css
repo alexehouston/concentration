@@ -12,13 +12,15 @@ body {
 }
 
 .concentration {
-    margin: auto;
+    margin-top: 5vmin;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card {
-    flex: 1 1 20%;
+
 }
 
 .card:active {
