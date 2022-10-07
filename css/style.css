@@ -1,39 +1,44 @@
 * {
     box-sizing: border-box;
+    margin-top: 1vmin;
 }
 
 body {
-    justify-content: center;
-    display: grid;
     background-color: pink;
     background-image: url("/img/background.jpg");
     background-size: cover;
     background-attachment: fixed;
 }
 
-.concentration {
-    margin-top: 5vmin;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
+.logo {
+    max-width: 50%;
+    max-height: auto;
 }
 
-.card {
+.concentration {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+
+.memory-card {
+    max-width: 25%;
+    max-height: auto;
+    margin: 0 -100px 0 0;
+
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg)
 }
 
 .card:active {
 
 }
 
-.card.flip {
-    
-}
-
 .front, .back {
+    width: 50%;
     height: 50%;
-    width: auto;
 }
 
 button {
