@@ -10,32 +10,36 @@ body {
     background-attachment: fixed;
 }
 
-.logo {
-    max-width: 50%;
+.flex-ctr {
+    justify-content: center;
+    align-items: center;
+  }
+
+#logo {
+    max-width: 60vmin;
+    
 }
 
-.concentration {
+#concentration {
     display: grid;
-    width: 800px;
     grid-template-columns: 25vmin 25vmin 25vmin 25vmin 25vmin;
     grid-template-rows: 40vmin 40vmin 40vmin 40vmin;
-    justify-content: space-between;
 }
 
 
-.memory-card {
+#memory-card {
 
 }
 
-.memory-card.flip {
+#memory-card.flip {
     transform: rotateY(180deg)
 }
 
-.card:active {
+#memory-card:active {
 
 }
 
-.front, .back {
+#front, #back {
     width: 50%;
     height: 50%;
 }

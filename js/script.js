@@ -1,15 +1,20 @@
+// constants
+
+// variables
 let cardFlipped = false;
 let lockBoard;
 let firstCard;
 let secondCard;
 
+// cached elements
 const cards = document.querySelectorAll('card');
-const playBtn = document.querySelectorAll('click', initialize);
+const playBtn = document.querySelectorAll('button');
 
-// addEventListener when:
-//     card is clicked -> cards will flip
-//     'play again' button is clicked -> game will reset
+// event listeners
+// card is clicked -> cards will flip
+// 'play again' button is clicked -> game will reset
 
+// functions
 init();
 
 function init() {
