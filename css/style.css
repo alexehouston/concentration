@@ -21,20 +21,44 @@ section {
 }
 
 #logo img {
-    width: 65vmin;
+    width: 55vmin;
+}
+
+button {
+    display: flex;
+    margin: auto;
+    background: none;
+    border: none;
+}
+
+button:hover {
+    transform: scale(1.1);
+    transition: transform 150ms;
+}
+
+#personal-logo {
+    display: flex;
+    margin: auto;
+    max-width: 30vmin;
 }
 
 #concentration {
     display: grid;
     grid-template-columns: 12vmin 12vmin 12vmin 12vmin 12vmin;
     grid-template-rows: 16vmin 16vmin 16vmin 16vmin;
-    margin-top: -4vmin;
+    margin-top: -10vmin;
 }
 
 
 #memory-card {
     display: flex;
     flex: 100%;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 
 #memory-card.flip {
@@ -42,22 +66,28 @@ section {
 }
 
 #memory-card:active {
+    transform: scale(.95);
+    transition: transform 0.2s;
+}
 
+#front {
+    transform: rotateY(180deg);
+}
+
+#back:hover {
+    transform: scale(1.1);
+    transition: transform 150ms;
 }
 
 #front, #back {
     position: absolute;
     width: 12vmin;
     height: auto;
+    backface-visibility: hidden;
 }
 
-button {
-    background: none;
-    border: none;
-    margin: 15vmin 0 5vmin 0;
-    color: white;
-    font-size: 2vmin;
-    letter-spacing: 2vmin   ;
-    font-family: 'jost', sans-serif;
-    width: 100%;
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, -0px); }    
 }
