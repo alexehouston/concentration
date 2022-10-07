@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    margin-top: 3vmin;
 }
 
 body {
@@ -10,25 +9,32 @@ body {
     background-attachment: fixed;
 }
 
-.flex-ctr {
+section {
     justify-content: center;
     align-items: center;
   }
 
 #logo {
-    max-width: 60vmin;
-    
+    display: flex;
+    justify-content: center;
+    margin-top: 4vmin;
+}
+
+#logo img {
+    width: 65vmin;
 }
 
 #concentration {
     display: grid;
-    grid-template-columns: 25vmin 25vmin 25vmin 25vmin 25vmin;
-    grid-template-rows: 40vmin 40vmin 40vmin 40vmin;
+    grid-template-columns: 12vmin 12vmin 12vmin 12vmin 12vmin;
+    grid-template-rows: 16vmin 16vmin 16vmin 16vmin;
+    margin-top: -4vmin;
 }
 
 
 #memory-card {
-
+    display: flex;
+    flex: 100%;
 }
 
 #memory-card.flip {
@@ -39,21 +45,19 @@ body {
 
 }
 
-#front {
-    visibility: hidden;
-}
-
 #front, #back {
-    width: 50%;
-    height: 50%;
+    position: absolute;
+    width: 12vmin;
+    height: auto;
 }
 
 button {
     background: none;
     border: none;
-    padding: 10vmin;
+    margin: 15vmin 0 5vmin 0;
     color: white;
-    font-size: 3vmin;
+    font-size: 2vmin;
     letter-spacing: 2vmin   ;
     font-family: 'jost', sans-serif;
+    width: 100%;
 }
