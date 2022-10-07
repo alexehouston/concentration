@@ -26,7 +26,8 @@ section {
 
 button {
     display: flex;
-    margin: auto;
+    margin-top: 10vmin;
+    width: 100%;
     background: none;
     border: none;
 }
@@ -39,14 +40,14 @@ button:hover {
 #personal-logo {
     display: flex;
     margin: auto;
-    max-width: 30vmin;
+    max-width: 25vmin;
 }
 
 #concentration {
     display: grid;
     grid-template-columns: 12vmin 12vmin 12vmin 12vmin 12vmin;
-    grid-template-rows: 16vmin 16vmin 16vmin 16vmin;
-    margin-top: -10vmin;
+    grid-template-rows: 15vmin 15vmin 15vmin 15vmin;
+    margin-top: -5vmin;
 }
 
 
@@ -81,7 +82,7 @@ button:hover {
 
 #front, #back {
     position: absolute;
-    width: 12vmin;
+    width: 11vmin;
     height: auto;
     backface-visibility: hidden;
 }
