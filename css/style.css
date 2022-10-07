@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    margin-top: 1vmin;
+    margin-top: 3vmin;
 }
 
 body {
@@ -12,19 +12,18 @@ body {
 
 .logo {
     max-width: 50%;
-    max-height: auto;
 }
 
 .concentration {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    width: 800px;
+    grid-template-columns: 25vmin 25vmin 25vmin 25vmin 25vmin;
+    grid-template-rows: 40vmin 40vmin 40vmin 40vmin;
+    justify-content: space-between;
 }
 
 
 .memory-card {
-    max-width: 25%;
-    max-height: auto;
-    margin: 0 -100px 0 0;
 
 }
 
@@ -44,7 +43,7 @@ body {
 button {
     background: none;
     border: none;
-    padding: 5vmin;
+    padding: 10vmin;
     color: white;
     font-size: 3vmin;
     letter-spacing: 2vmin   ;
