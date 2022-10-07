@@ -1,4 +1,16 @@
 // constants
+const CHAR_LOOKUP = {
+    mercury: '/img/sailor-mercury.png',
+    venus: '/img/sailor-venus.png',
+    moon: '/img/sailor-moon.png',
+    chibi: '/img/sailor-chibi-moon.png',
+    mars: '/img/sailor-mars.png',
+    jupiter: '/img/sailor-jupiter.png',
+    saturn: '/img/sailor-saturn.png',
+    neptune: '/img/sailor-neptune.png',
+    uranus: '/img/sailor-uranus.png',
+    pluto: '/img/sailor-pluto.png',
+}
 
 // variables
 let cardFlipped = false;
