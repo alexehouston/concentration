@@ -13,14 +13,14 @@ const CHAR_LOOKUP = {
 }
 
 // variables
-let cardFlipped = false;
-let lockBoard;
 let firstCard;
 let secondCard;
+let cardFlipped;
+let lockBoard;
 
 // cached elements
-const cards = document.querySelectorAll('card');
-const playBtn = document.querySelectorAll('button');
+const cards = document.getElementById('memory-card');
+const playBtn = document.getElementById('button');
 
 // event listeners
 // card is clicked -> cards will flip
