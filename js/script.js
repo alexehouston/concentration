@@ -31,7 +31,9 @@ init();
 
 function init() {
 
-}
+
+    render();
+} 
 
 function flipCard() {
     // if board is not locked -> allow cards to flip
