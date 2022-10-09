@@ -7,6 +7,8 @@ body {
     background-image: url("/img/background.jpg");
     background-size: cover;
     background-attachment: fixed;
+    scroll-behavior: none;
+    
 }
 
 section {
@@ -37,6 +39,10 @@ button:hover {
     transition: transform 150ms;
 }
 
+button:disabled {
+    opacity: 0%;
+  }
+
 #personal-logo {
     display: flex;
     margin: auto;
@@ -48,25 +54,27 @@ button:hover {
     grid-template-columns: 12vmin 12vmin 12vmin 12vmin 12vmin;
     grid-template-rows: 15vmin 15vmin 15vmin 15vmin;
     margin-top: -5vmin;
-}
-
-
-#memory-card {
-    display: flex;
-    flex: 100%;
-    transform-style: preserve-3d;
-    transition: transform .5s;
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
 
-#memory-card.flip {
-    transform: rotateY(180deg)
+
+.memory-card {
+    display: flex;
+    flex: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    perspective: 500px;
+    cursor: pointer;
 }
 
-#memory-card:active {
+.memory-card.flipped {
+    transform: rotateY(-180deg);
+  }
+
+.memory-card:active {
     transform: scale(.95);
     transition: transform 0.2s;
 }
@@ -85,6 +93,8 @@ button:hover {
     width: 11vmin;
     height: auto;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
 }
 
 @keyframes floating {
