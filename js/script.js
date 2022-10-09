@@ -13,22 +13,31 @@ const CHAR_LOOKUP = {
 }
 
 // variables
-let firstCard;
-let secondCard;
+let firstCard, secondCard;
 let cardFlipped = false;
 let lockedBoard = false;
 
 // cached elements
-const cards = document.querySelectorAll('.memory-card');
+let cards = document.getElementsByClassName("memory-card");
+if (cards !== 0) {
+    let card_array = [];
+    for (let x = 0; x < cards.length; x++) {
+        card_array.push(x);
+    }
+    for (let x = 0; x < cards.length; x++) {
+        let j = Math.floor(Math.random() * card_array.length);
+        let card = cards.item(card_array[j]);
+        card.parentNode.appendChild(card);
+        card_array.splice(j, 1);
+    }
+}
 const playBtn = document.querySelectorAll('button');
 
 // event listeners
 // card is clicked -> cards will flip
-[...cards].forEach((card) => {
-    card.addEventListener( 'click', function() {
-      card.classList.toggle('flipped');
-    });
-  });
+for (let i = 0; i < cards.length; i++) {
+    cards[i].addEventListener('click', flipCard);
+}
 // 'play again' button is clicked -> game will reset
 
 // functions
@@ -41,30 +50,21 @@ function init() {
 } 
 
 function flipCard() {
-    // if board is not locked -> allow cards to flip
     if (lockedBoard) return;
     if (this === firstCard) return;
-        this.classList.add('flip');
+    this.classList.add('flipped');
     if (!cardFlipped) {
-     // if choosing first or second card -> allow card to flip
         cardFlipped = true;
-        firstCard = this; 
-    } else {
-    // check for match after selecting second card
-        cardFlipped = false;
-        secondCard = this;
-        checkMatch();
+        firstCard = this;
+        return;
     }
+    secondCard = this;
+    checkMatch();
 }
 
 function checkMatch() {
-    // if first & second card match -> keep cards facing up
-    if (firstCard.dataset === secondCard.dataset) {
-        freezeCards();
-    } else {
-        // otherwise -> flip cards back to normal position
-        resetCards();
-    }
+    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+    isMatch ? freezeCards() : resetCards();
 }
 
 function freezeCards() {
@@ -77,8 +77,7 @@ function resetCards() {
     // player clicks two cards -> cards unflip after a few seconds
     lockedBoard = true;
     setTimeout(() => {
-        firstCard.classlist.remove('flip');
-        secondCard.classlist.remove('flip');
+        this.classlist.remove('flipped');
         resetBoard();
     }, 1500);
 }
@@ -96,7 +95,7 @@ function resetGame () {
 // player has pressed the 'play again' button
 }
 
-// shuffle all div elements each time player refreshes game
+// shuffle all div elements each time game is refre
 function shuffleCards() {
     cards.forEach(card => {
         let randomCard = Math.floor(Math.random()*20);
