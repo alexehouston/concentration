@@ -102,3 +102,25 @@ button:disabled {
     65%  { transform: translate(0, 15px); }
     to   { transform: translate(0, -0px); }    
 }
+
+@media screen and (max-width: 850px) {
+    body {
+      margin-top: 13vmin;
+    }
+    #logo img {
+        width: 75vmin;
+    }
+    #personal-logo {
+        max-width: 40vmin;
+    }
+    #concentration {
+        grid-template-columns: 16vmin 16vmin 16vmin 16vmin 16vmin;
+        grid-template-rows: 22vmin 22vmin 22vmin 22vmin;
+    }
+    #front, #back {
+        width: 16vmin;
+    }
+    button {
+        padding: 10vmin;
+    }
+  }
