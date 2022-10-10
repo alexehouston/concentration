@@ -19,6 +19,7 @@ const CARD_BACK = 'https://i.imgur.com/rvG5lyo.png';
 let cards, firstCard, secondCard, ignoreClicks, winner;
 let clickSound = new Audio('mp3/ding.mp3');
 let matchSound = new Audio('mp3/correct.mp3');
+let flipDelay = 1000;
 
 
 // cached elements //
@@ -38,7 +39,9 @@ init();
 function init() {
     cards = getShuffledCards();
     firstCard = null;
+    secondCard = null;
     ignoreClicks = false;
+    numWrong = '';
     winner = null;
     render();
 }
@@ -49,7 +52,7 @@ function render() {
     const src = (card.matched || card === firstCard || card === secondCard) ? card.img : CARD_BACK;
     imgEl.src = src;
   });
-  // playBtn.disabled = !winner;
+  msgEl.innerHTML = `incorrect matches: ${numWrong}`;
 }
   
 function getShuffledCards() {
@@ -74,15 +77,18 @@ function handleChoice(evt) {
   if (firstCard) {
     if (secondCard) {
       if (firstCard.img === secondCard.img) {
+        // correct match
         firstCard.matched = secondCard.matched = true;
         matchSound.play();
-    } 
+    } else {
+      numWrong++;
+    }
     firstCard = null;
     secondCard = null;
     } else {
       if (isNaN(cardIdx) || ignoreClicks ||
       cards[cardIdx] === firstCard) return;
-        secondCard = card;
+      secondCard = card;
     }
   } else {
     firstCard = card;
