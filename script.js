@@ -16,17 +16,20 @@ var SOURCE_CARDS = [
 const CARD_BACK = 'https://i.imgur.com/rvG5lyo.png';
 
 // variables //
-let cards; // array of 20 shuffled objects
-let firstCard; // first card clicked
-let numWrong;
-let ignoreClicks;
+let cards, firstCard, secondCard, ignoreClicks, winner;
+let clickSound = new Audio('mp3/ding.mp3');
+let matchSound = new Audio('mp3/correct.mp3');
+
 
 // cached elements //
-const playBtn = document.querySelector('button');
 const msgEl = document.querySelector('h1');
 
 // event listeners //
 document.querySelector('main').addEventListener('click', handleChoice);
+document.querySelector('main').addEventListener('click', () => {
+  clickSound.play();
+});
+// document.querySelector('button').addEventListener('click', getWinner);
 
 // functions //
 init();
@@ -35,31 +38,32 @@ init();
 function init() {
     cards = getShuffledCards();
     firstCard = null;
-    numWrong = 0;
     ignoreClicks = false;
+    winner = null;
     render();
 }
   
-  function render() {
-    cards.forEach(function(card, idx) {
-      const imgEl = document.getElementById(idx);
-      const src = (card.matched || card === firstCard) ? card.img : CARD_BACK;
-      imgEl.src = src;
-    });
+function render() {
+  cards.forEach(function(card, idx) {
+    const imgEl = document.getElementById(idx);
+    const src = (card.matched || card === firstCard || card === secondCard) ? card.img : CARD_BACK;
+    imgEl.src = src;
+  });
+  // playBtn.disabled = !winner;
 }
   
-  function getShuffledCards() {
-    let tempCards = [];
-    let cards = [];
-    for (let card of SOURCE_CARDS) {
-      tempCards.push({...card}, {...card});
-    }
-    while (tempCards.length) {
-      let rndIdx = Math.floor(Math.random() * tempCards.length);
-      let card = tempCards.splice(rndIdx, 1)[0];
-      cards.push(card);
-    }
-    return cards;
+function getShuffledCards() {
+  let tempCards = [];
+  let cards = [];
+  for (let card of SOURCE_CARDS) {
+    tempCards.push({...card}, {...card});
+  }
+  while (tempCards.length) {
+    let rndIdx = Math.floor(Math.random() * tempCards.length);
+    let card = tempCards.splice(rndIdx, 1)[0];
+    cards.push(card);
+  }
+  return cards;
 }
 
 // update all impacted state, then call render()
@@ -68,33 +72,31 @@ function handleChoice(evt) {
   if (isNaN(cardIdx) || ignoreClicks) return;
   const card = cards[cardIdx];
   if (firstCard) {
-    if (firstCard.img === card.img) {
-      // correct match
-      firstCard.matched = card.matched = true;
-    } else {
-      numWrong++;
-    }
+    if (secondCard) {
+      if (firstCard.img === secondCard.img) {
+        firstCard.matched = secondCard.matched = true;
+        matchSound.play();
+    } 
     firstCard = null;
+    secondCard = null;
+    } else {
+      if (isNaN(cardIdx) || ignoreClicks ||
+      cards[cardIdx] === firstCard) return;
+        secondCard = card;
+    }
   } else {
     firstCard = card;
   }
   render();
 }
 
-// function resetGame () {
-// // reset game when:
-// // player has won
-// // player has run out of guesses
-// // player has pressed the 'play again' button
+// function getWinner() {
+//   // when board is no longer clickable
+//   if (ignoreClicks = null) return;
 // }
 
 // function hideButton() {
-//     // game in-progress -> button hidden
-//     // game over -> button visible
-// }
+//   // hide button while game is in progress
+//   playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
 
-function flipCard() {
-  let x = document.getElementById("flip")
-  x.style.transform = "rotateY(180deg)";
-  x.style.transition = "1s";
-  }
+// }

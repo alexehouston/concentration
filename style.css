@@ -11,6 +11,7 @@ body {
     background-color: pink;
     background-image: url("https://i.imgur.com/rIdZlaD.jpg");
     background-size: cover;
+    background-position: center;
     background-attachment: fixed;
     overflow: hidden;
 }
@@ -45,6 +46,7 @@ main img:hover {
 button {
     background: none;
     border: none;
+    margin-top: 4vmin;
 }
 
 #button {
@@ -66,7 +68,7 @@ button:disabled {
     to   { transform: translate(0, -0px); }    
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 650px) {
 
     main {
         padding: 3vmin;
@@ -83,5 +85,25 @@ button:disabled {
     
     #button {
         max-width: 35vmin;
+    }
+  }
+
+@media screen and (max-width: 1000px) {
+
+    main {
+        padding: 3vmin;
+    }
+
+    #logo img {
+        width: 60vmin;
+    }
+
+    main {
+        grid-template-columns: repeat(5, 14vmin);
+        grid-template-rows: repeat(4, 16vmin);
+    }
+    
+    #button {
+        max-width: 30vmin;
     }
   }
