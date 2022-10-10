@@ -13,7 +13,7 @@ var SOURCE_CARDS = [
     {img: 'https://i.imgur.com/7FTE8DS.png', matched: false}
 ];
 
-const CARD_BACK = 'https://i.imgur.com/rvG5lyo.png'; 
+const CARD_BACK = 'https://i.imgur.com/rvG5lyo.png';
 
 // variables //
 let cards; // array of 20 shuffled objects
@@ -26,7 +26,7 @@ const playBtn = document.querySelector('button');
 const msgEl = document.querySelector('h1');
 
 // event listeners //
-document.querySelector('main').addEventListener('click', handleChoice)
+document.querySelector('main').addEventListener('click', handleChoice);
 
 // functions //
 init();
@@ -92,3 +92,9 @@ function handleChoice(evt) {
 //     // game in-progress -> button hidden
 //     // game over -> button visible
 // }
+
+function flipCard() {
+  let x = document.getElementById("flip")
+  x.style.transform = "rotateY(180deg)";
+  x.style.transition = "1s";
+  }

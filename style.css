@@ -16,28 +16,31 @@ body {
 }
 
 #logo img {
-    width: 55vmin;
+    width: 50vmin;
+    margin-top: 3vmin;
 }
 
 main {
     display: grid;
-    grid-template-columns: repeat(5, 12vmin);
-    grid-template-rows: repeat(4, 13vmin);
+    grid-template-columns: repeat(5, 14vmin);
+    grid-template-rows: repeat(4, 15vmin);
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-    margin-bottom: 10vmin;
 }
 
 main img {
-    margin-top: 5vmin;
-    width: 80%;
-    display: flex;
+    margin-top: 3vmin;
+    width: 75%;
     cursor: pointer;
 
 }
 
+main img:hover {
+    transform: scale(1.1);
+    transition: transform 150ms;
+}
 
 button {
     background: none;
@@ -51,38 +54,11 @@ button {
 button:hover {
     transform: scale(1.1);
     transition: transform 150ms;
-} */
+}
 
 button:disabled {
     opacity: 0%;
   }
-
-/* .memory-card.flipped {
-    transform: rotateY(-180deg);
-  }
-
-.memory-card:active {
-    transform: scale(.95);
-    transition: transform 0.2s;
-} */
-
-/* #front {
-    transform: rotateY(180deg);
-}
-
-#back:hover {
-    transform: scale(1.1);
-    transition: transform 150ms;
-}
-
-#front, #back {
-    position: absolute;
-    width: 11vmin;
-    height: auto;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    overflow: hidden;
-} */
 
 @keyframes floating {
     from { transform: translate(0,  0px); }
