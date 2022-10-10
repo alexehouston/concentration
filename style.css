@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+    background-image: url("https://i.imgur.com/rIdZlaD.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+#logo img {
+    width: 55vmin;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(5, 12vmin);
+    grid-template-rows: repeat(4, 13vmin);
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-bottom: 10vmin;
+}
+
+main img {
+    margin-top: 5vmin;
+    width: 80%;
+    display: flex;
+    cursor: pointer;
+
+}
+
+
+button {
+    background: none;
+    border: none;
+}
+
+#button {
+    max-width: 25vmin;
+}
+
+button:hover {
+    transform: scale(1.1);
+    transition: transform 150ms;
+} */
+
+button:disabled {
+    opacity: 0%;
+  }
+
+/* .memory-card.flipped {
+    transform: rotateY(-180deg);
+  }
+
+.memory-card:active {
+    transform: scale(.95);
+    transition: transform 0.2s;
+} */
+
+/* #front {
+    transform: rotateY(180deg);
+}
+
+#back:hover {
+    transform: scale(1.1);
+    transition: transform 150ms;
+}
+
+#front, #back {
+    position: absolute;
+    width: 11vmin;
+    height: auto;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+} */
+
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, -0px); }    
+}
+
+@media screen and (max-width: 850px) {
+
+    main {
+        padding: 3vmin;
+    }
+
+    #logo img {
+        width: 75vmin;
+    }
+
+    main {
+        grid-template-columns: repeat(5, 17vmin);
+        grid-template-rows: repeat(4, 20vmin);
+    }
+    
+    #button {
+        max-width: 35vmin;
+    }
+  }
