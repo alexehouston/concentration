@@ -20,10 +20,13 @@ let cards, firstCard, secondCard, ignoreClicks, winner;
 let clickSound = new Audio('mp3/ding.mp3');
 let matchSound = new Audio('mp3/correct.mp3');
 let flipDelay = 1000;
+var second = 60
+var interval;
 
 
 // cached elements //
 const msgEl = document.querySelector('h1');
+var timer = document.querySelector(".timer");
 
 // event listeners //
 document.querySelector('main').addEventListener('click', handleChoice);
@@ -41,7 +44,7 @@ function init() {
     firstCard = null;
     secondCard = null;
     ignoreClicks = false;
-    numWrong = '';
+    numRight = '';
     winner = null;
     render();
 }
@@ -52,7 +55,7 @@ function render() {
     const src = (card.matched || card === firstCard || card === secondCard) ? card.img : CARD_BACK;
     imgEl.src = src;
   });
-  msgEl.innerHTML = `incorrect matches: ${numWrong}`;
+  msgEl.innerHTML = `matches: ${numRight}`;
 }
   
 function getShuffledCards() {
@@ -71,6 +74,7 @@ function getShuffledCards() {
 
 // update all impacted state, then call render()
 function handleChoice(evt) {
+  startTimer();
   const cardIdx = parseInt(evt.target.id);
   if (isNaN(cardIdx) || ignoreClicks) return;
   const card = cards[cardIdx];
@@ -79,9 +83,8 @@ function handleChoice(evt) {
       if (firstCard.img === secondCard.img) {
         // correct match
         firstCard.matched = secondCard.matched = true;
+        numRight++;
         matchSound.play();
-    } else {
-      numWrong++;
     }
     firstCard = null;
     secondCard = null;
@@ -95,6 +98,18 @@ function handleChoice(evt) {
   }
   render();
 }
+
+function startTimer() {
+  interval = setInterval(function() {
+    timer.innerHTML = "0:" + second;
+    if (second === 0) {
+      second = 60
+    }
+    second--;
+  }, 1000);
+}
+  clearInterval(interval);
+
 
 // function getWinner() {
 //   // when board is no longer clickable
