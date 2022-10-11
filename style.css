@@ -16,6 +16,60 @@ body {
     overflow: hidden;
 }
 
+.modal-container {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200vh;
+    height: 200vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    
+}
+
+.modal {
+    background-color: white;
+    background-image: url("https://i.pinimg.com/originals/0d/ff/12/0dff12883e37d102981a1cbf01401a64.png");
+    background-size: 150%;
+    background-position: center;
+    width: 40vmin;
+    height: 30vmin;
+    max-width: 40vmin;
+    max-height: 30vmin;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 30px 50px;
+    max-width: 100%;
+    text-align: center;
+    animation: zoom 3s ease infinite;
+}
+
+.modal p {
+    margin-top: 8vmin;
+    font-family: 'press start 2p', sans-serif;
+    font-size: 3vmin;
+    color: white;
+    -webkit-text-stroke: 2px #A572D9;
+}
+
+#reset {
+    color: white;
+    font-family: 'press start 2p', sans-serif;
+    font-size: 2vmin;
+    -webkit-text-stroke: 1px pink;
+    border-color: white;
+    background: none;
+    border-radius: 15%;
+    padding: 5px;
+}
+
+#reset:hover {
+    transform: scale(1.2);
+    transition: transform 150ms;
+    opacity: 100%;
+}
+
 .timer, h1 {
     color: #E67FD1;
     font-family: 'press start 2p', sans-serif;
@@ -71,25 +125,6 @@ button {
     font-size: 3vmin;
     cursor: pointer;
     margin-bottom: -3.5vmin;
-}
-
-#reset {
-    color: white;
-    font-family: 'press start 2p', sans-serif;
-    font-size: 1.5vmin;
-    border-color: white;
-    margin-top: 6vmin;
-    -webkit-text-stroke: 1px #A572D9;
-    background: none;
-    border-radius: 15%;
-    opacity: 75%;
-    padding: 5px;
-}
-
-#reset:hover {
-    transform: scale(1.2);
-    transition: transform 150ms;
-    opacity: 100%;
 }
   
 

@@ -24,10 +24,11 @@ let seconds;
 
 
 // cached elements //
-const resetBtn = document.getElementById('reset');
 const counter = document.getElementById('counter');
 const playBtn = document.getElementById('start');
 const msgEl = document.querySelector('h1');
+const modalEl = document.getElementById('modal-container');
+const resetBtn = document.getElementById('reset');
 
 // event listeners //
 document.querySelector('main').addEventListener('click', handleChoice);
@@ -131,7 +132,6 @@ function resetGame() {
 
 function gameOver() {
   if (chances || seconds === 0) {
-    alert("GAME OVER");
-    resetGame();
+    modalEl.classList.add('show');
   }
 }
