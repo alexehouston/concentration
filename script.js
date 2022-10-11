@@ -16,19 +16,23 @@ const CARD_BACK = 'https://i.imgur.com/rvG5lyo.png';
 
 // variables //
 let cards, firstCard, secondCard, ignoreClicks;
-let clickSound = new Audio('mp3/ding.wav');
-let matchSound = new Audio('mp3/correct.mp3');
+const startSound = new Audio('mp3/start.mp3');
+const clickSound = new Audio('mp3/ding.wav');
+const matchSound = new Audio('mp3/correct.mp3');
+const resetSound = new Audio('mp3/reset.mp3')
 let seconds;
 
 
 // cached elements //
+const resetBtn = document.getElementById('reset');
+const counter = document.getElementById('counter');
+const playBtn = document.getElementById('start');
 const msgEl = document.querySelector('h1');
-const resetBtn = document.querySelector('button');
-const counter = document.getElementById("counter");
 
 // event listeners //
 document.querySelector('main').addEventListener('click', handleChoice);
 resetBtn.addEventListener('click', resetGame);
+document.getElementById('start').addEventListener("click", startGame);
 
 // functions //
 init();
@@ -40,7 +44,7 @@ function init() {
     secondCard = null;
     ignoreClicks = false;
     seconds = 60;
-    chances = 15;
+    chances = 12;
     winner = null;
     render();
 }
@@ -51,7 +55,6 @@ function render() {
     const src = (card.matched || card === firstCard || card === secondCard) ? card.img : CARD_BACK;
     imgEl.src = src;
   });
-  msgEl.innerHTML = `chances: ${chances}/15`;
 }
   
 function getShuffledCards() {
@@ -71,7 +74,6 @@ function getShuffledCards() {
 // update all impacted state, then call render()
 function handleChoice(evt) {
   const cardIdx = parseInt(evt.target.id);
-  startTimer();
   if (isNaN(cardIdx) || ignoreClicks) return;
   clickSound.play();
   const card = cards[cardIdx];
@@ -96,6 +98,15 @@ function handleChoice(evt) {
   render();
 }
 
+function startGame() {
+  startSound.play();
+  startTimer();
+  playBtn.remove();
+  document.querySelector('main').style.pointerEvents = 'auto';
+  document.querySelector('main').style.opacity = '100%';
+  msgEl.innerHTML = `chances: ${chances}/12`;
+}
+
 function startTimer() {
   function tick() {
     seconds--;
@@ -104,24 +115,23 @@ function startTimer() {
     if (seconds > 0) {
       setTimeout(tick, 1000);
     } else {
-      init();
+      alert("GAME OVER");
+      resetGame();
     }
   }
   tick();
 }
 
-function startChances() {
-  msgEl.innerHTML = `chances: ${chances} / 15`;
-}
-
 function resetGame() {
-  init();
-  clickSound.play();
-  startTimer();
+  resetSound.play();
+  setTimeout(function(){
+    window.location.reload();
+ }, 200);
 }
 
-const button = document.querySelector("button");
-button.addEventListener("click", event => {
-  init();
-  button.remove();
-});
+function gameOver() {
+  if (chances || seconds === 0) {
+    alert("GAME OVER");
+    resetGame();
+  }
+}

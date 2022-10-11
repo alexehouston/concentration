@@ -20,15 +20,24 @@ body {
     color: #E67FD1;
     font-family: 'press start 2p', sans-serif;
     font-size: 1.1vmin;
-    margin-top: 1vmin;
 }
 
-h1 {
-    padding: 2vmin;
+.timer {
+    margin-top: 3vmin;
+}
+
+#start {
+    color: white;
+    -webkit-text-stroke: 3px #A572D9;
+    animation: zoom 1.5s ease infinite;
+    margin-top: 2vmin;
+    background: none;
+    border: none;
 }
 
 #logo img {
     width: 55vmin;
+    margin-top: 3vmin;
 }
 
 main {
@@ -39,6 +48,13 @@ main {
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+    opacity: 60%;
+    pointer-events: none;
+}
+
+main:disabled {
+    opacity: 50%;
+    pointer-events: none;
 }
 
 main img {
@@ -52,29 +68,29 @@ main img:hover {
 }
 
 button {
-    background: none;
-    border: none;
-    color: #E67FD1;
     font-size: 3vmin;
     cursor: pointer;
-    margin-bottom: -2.8vmin;
+    margin-bottom: -3.5vmin;
 }
 
-button img {
-    margin-top: 5vmin;
-    width: 4vmin;
-    opacity: 50%;
+#reset {
+    color: white;
+    font-family: 'press start 2p', sans-serif;
+    font-size: 1.5vmin;
+    border-color: white;
+    margin-top: 6vmin;
+    -webkit-text-stroke: 1px #A572D9;
+    background: none;
+    border-radius: 15%;
+    opacity: 75%;
+    padding: 5px;
 }
 
-button img:hover {
+#reset:hover {
     transform: scale(1.2);
     transition: transform 150ms;
     opacity: 100%;
 }
-
-button:disabled {
-    opacity: 0%;
-  }
   
 
 @keyframes floating {
@@ -83,7 +99,13 @@ button:disabled {
     to   { transform: translate(0, -0px); }    
 }
 
-@media screen and (max-width: 650px) {
+@keyframes zoom {
+    from { transform: scale(.75); }
+    50% { transform: scale(1); }
+    to { transform: scale(.75); }
+  }
+
+@media screen and (max-width: 850px) {
 
     main {
         padding: 3vmin;
@@ -91,6 +113,7 @@ button:disabled {
 
     #logo img {
         width: 75vmin;
+        margin: 0;
     }
 
     main {
@@ -101,24 +124,22 @@ button:disabled {
     #button {
         max-width: 35vmin;
     }
-  }
 
-@media screen and (max-width: 1000px) {
-
-    main {
-        padding: 3vmin;
+    #start {
+        font-size: 5vmin;
     }
 
-    #logo img {
-        width: 60vmin;
+    .timer, h1 {
+        font-size: 2vmin;
     }
 
-    main {
-        grid-template-columns: repeat(5, 14vmin);
-        grid-template-rows: repeat(4, 16vmin);
+    button img {
+        width: 7vmin;
     }
-    
-    #button {
-        max-width: 30vmin;
+    #reset {
+        font-size: 2vmin;
+        opacity: 100%;
+        animation: zoom 2s ease infinite;
+        -webkit-text-stroke: .5px #A572D9;
     }
   }
