@@ -15,24 +15,20 @@ var SOURCE_CARDS = [
 const CARD_BACK = 'https://i.imgur.com/rvG5lyo.png';
 
 // variables //
-let cards, firstCard, secondCard, ignoreClicks, winner;
-let clickSound = new Audio('mp3/ding.mp3');
+let cards, firstCard, secondCard, ignoreClicks;
+let clickSound = new Audio('mp3/ding.wav');
 let matchSound = new Audio('mp3/correct.mp3');
-var second = 60
-var interval;
+let seconds;
 
 
 // cached elements //
 const msgEl = document.querySelector('h1');
-var timer = document.querySelector(".timer");
+const resetBtn = document.querySelector('button');
+const counter = document.getElementById("counter");
 
 // event listeners //
 document.querySelector('main').addEventListener('click', handleChoice);
-document.querySelector('main').addEventListener('click', () => {
-  clickSound.play();
-});
-document.querySelector('main').addEventListener('click', animate);
-// memoryCard.addEventListener('click', flipCard);
+resetBtn.addEventListener('click', resetGame);
 
 // functions //
 init();
@@ -43,7 +39,8 @@ function init() {
     firstCard = null;
     secondCard = null;
     ignoreClicks = false;
-    numRight = '';
+    seconds = 60;
+    chances = 15;
     winner = null;
     render();
 }
@@ -54,8 +51,7 @@ function render() {
     const src = (card.matched || card === firstCard || card === secondCard) ? card.img : CARD_BACK;
     imgEl.src = src;
   });
-  msgEl.innerHTML = `matches: ${numRight}`;
-  timer.innerHTML = "0:60";
+  msgEl.innerHTML = `chances: ${chances}/15`;
 }
   
 function getShuffledCards() {
@@ -75,15 +71,16 @@ function getShuffledCards() {
 // update all impacted state, then call render()
 function handleChoice(evt) {
   const cardIdx = parseInt(evt.target.id);
-  if (isNaN(cardIdx) || ignoreClicks) return;
   startTimer();
+  if (isNaN(cardIdx) || ignoreClicks) return;
+  clickSound.play();
   const card = cards[cardIdx];
   if (firstCard) {
     if (secondCard) {
+      chances--;
       if (firstCard.img === secondCard.img) {
         // correct match
         firstCard.matched = secondCard.matched = true;
-        numRight++;
         matchSound.play();
     }
     firstCard = null;
@@ -100,23 +97,31 @@ function handleChoice(evt) {
 }
 
 function startTimer() {
-  interval = setInterval(function() {
-    timer.innerHTML = "0:" + second;
-    if (second === 0) {
-      second = 60
+  function tick() {
+    seconds--;
+    counter.innerHTML =
+      "0:" + (seconds < 10 ? "0" : "") + String(seconds);
+    if (seconds > 0) {
+      setTimeout(tick, 1000);
+    } else {
+      init();
     }
-    second--;
-  }, 1000);
-}
-clearInterval(interval);
-
-function animate() {
-  let animateEl = document.getElementById("animate");
-
-  animateEl.classList.add('fade-in');
-
-  setTimeout(function() {
-    animateEl.classList.remove('fade-in');
-  }, 1000);
+  }
+  tick();
 }
 
+function startChances() {
+  msgEl.innerHTML = `chances: ${chances} / 15`;
+}
+
+function resetGame() {
+  init();
+  clickSound.play();
+  startTimer();
+}
+
+const button = document.querySelector("button");
+button.addEventListener("click", event => {
+  init();
+  button.remove();
+});

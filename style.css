@@ -17,14 +17,18 @@ body {
 }
 
 .timer, h1 {
-    color: #A572D8;
-    font-family: 'dongle', sans-serif;
-    letter-spacing: 2px;
-    font-size: 2.5vmin;
+    color: #E67FD1;
+    font-family: 'press start 2p', sans-serif;
+    font-size: 1.1vmin;
+    margin-top: 1vmin;
+}
+
+h1 {
+    padding: 2vmin;
 }
 
 #logo img {
-    width: 50vmin;
+    width: 55vmin;
 }
 
 main {
@@ -50,10 +54,14 @@ main img:hover {
 button {
     background: none;
     border: none;
-    margin-top: 5vmin;
+    color: #E67FD1;
+    font-size: 3vmin;
+    cursor: pointer;
+    margin-bottom: -2.8vmin;
 }
 
 button img {
+    margin-top: 5vmin;
     width: 4vmin;
     opacity: 50%;
 }
@@ -67,6 +75,7 @@ button img:hover {
 button:disabled {
     opacity: 0%;
   }
+  
 
 @keyframes floating {
     from { transform: translate(0,  0px); }
