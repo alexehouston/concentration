@@ -1,5 +1,4 @@
 // constants //
-// each character object will be used twice and shuffled each time board is refreshed
 var SOURCE_CARDS = [
     {img: 'https://i.imgur.com/ENXZfgZ.png', matched: false},
     {img: 'https://i.imgur.com/eJsnj4q.png', matched: false},
@@ -19,7 +18,6 @@ const CARD_BACK = 'https://i.imgur.com/rvG5lyo.png';
 let cards, firstCard, secondCard, ignoreClicks, winner;
 let clickSound = new Audio('mp3/ding.mp3');
 let matchSound = new Audio('mp3/correct.mp3');
-let flipDelay = 1000;
 var second = 60
 var interval;
 
@@ -33,7 +31,8 @@ document.querySelector('main').addEventListener('click', handleChoice);
 document.querySelector('main').addEventListener('click', () => {
   clickSound.play();
 });
-// document.querySelector('button').addEventListener('click', getWinner);
+document.querySelector('main').addEventListener('click', animate);
+// memoryCard.addEventListener('click', flipCard);
 
 // functions //
 init();
@@ -56,6 +55,7 @@ function render() {
     imgEl.src = src;
   });
   msgEl.innerHTML = `matches: ${numRight}`;
+  timer.innerHTML = "0:60";
 }
   
 function getShuffledCards() {
@@ -74,9 +74,9 @@ function getShuffledCards() {
 
 // update all impacted state, then call render()
 function handleChoice(evt) {
-  startTimer();
   const cardIdx = parseInt(evt.target.id);
   if (isNaN(cardIdx) || ignoreClicks) return;
+  startTimer();
   const card = cards[cardIdx];
   if (firstCard) {
     if (secondCard) {
@@ -108,16 +108,15 @@ function startTimer() {
     second--;
   }, 1000);
 }
-  clearInterval(interval);
+clearInterval(interval);
 
+function animate() {
+  let animateEl = document.getElementById("animate");
 
-// function getWinner() {
-//   // when board is no longer clickable
-//   if (ignoreClicks = null) return;
-// }
+  animateEl.classList.add('fade-in');
 
-// function hideButton() {
-//   // hide button while game is in progress
-//   playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+  setTimeout(function() {
+    animateEl.classList.remove('fade-in');
+  }, 1000);
+}
 
-// }
