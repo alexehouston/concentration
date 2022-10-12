@@ -1,15 +1,15 @@
 // constants //
 var SOURCE_CARDS = [
-    {img: 'https://i.imgur.com/ENXZfgZ.png', matched: false},
-    {img: 'https://i.imgur.com/eJsnj4q.png', matched: false},
-    {img: 'https://i.imgur.com/xPrKwEx.png', matched: false},
-    {img: 'https://i.imgur.com/oDyA2Q8.png', matched: false},
-    {img: 'https://i.imgur.com/7ry0qGw.png', matched: false},
-    {img: 'https://i.imgur.com/Pq32aAQ.png', matched: false},
-    {img: 'https://i.imgur.com/vIbyQqm.png', matched: false},
-    {img: 'https://i.imgur.com/RieUif3.png', matched: false},
-    {img: 'https://i.imgur.com/bcFIW8m.png', matched: false},
-    {img: 'https://i.imgur.com/7FTE8DS.png', matched: false}
+  { img: 'https://i.imgur.com/ENXZfgZ.png', matched: false },
+  { img: 'https://i.imgur.com/eJsnj4q.png', matched: false },
+  { img: 'https://i.imgur.com/xPrKwEx.png', matched: false },
+  { img: 'https://i.imgur.com/oDyA2Q8.png', matched: false },
+  { img: 'https://i.imgur.com/7ry0qGw.png', matched: false },
+  { img: 'https://i.imgur.com/Pq32aAQ.png', matched: false },
+  { img: 'https://i.imgur.com/vIbyQqm.png', matched: false },
+  { img: 'https://i.imgur.com/RieUif3.png', matched: false },
+  { img: 'https://i.imgur.com/bcFIW8m.png', matched: false },
+  { img: 'https://i.imgur.com/7FTE8DS.png', matched: false }
 ];
 
 const CARD_BACK = 'https://i.imgur.com/rvG5lyo.png';
@@ -40,29 +40,29 @@ init();
 
 // initialize all state, then call render()
 function init() {
-    cards = getShuffledCards();
-    firstCard = null;
-    secondCard = null;
-    ignoreClicks = false;
-    seconds = 60;
-    chances = 12;
-    winner = null;
-    render();
+  cards = getShuffledCards();
+  firstCard = null;
+  secondCard = null;
+  ignoreClicks = false;
+  seconds = 60;
+  chances = 12;
+  winner = null;
+  render();
 }
-  
+
 function render() {
-  cards.forEach(function(card, idx) {
+  cards.forEach(function (card, idx) {
     const imgEl = document.getElementById(idx);
     const src = (card.matched || card === firstCard || card === secondCard) ? card.img : CARD_BACK;
     imgEl.src = src;
   });
 }
-  
+
 function getShuffledCards() {
   let tempCards = [];
   let cards = [];
   for (let card of SOURCE_CARDS) {
-    tempCards.push({...card}, {...card});
+    tempCards.push({ ...card }, { ...card });
   }
   while (tempCards.length) {
     let rndIdx = Math.floor(Math.random() * tempCards.length);
@@ -85,12 +85,12 @@ function handleChoice(evt) {
         // correct match
         firstCard.matched = secondCard.matched = true;
         matchSound.play();
-    }
-    firstCard = null;
-    secondCard = null;
+      }
+      firstCard = null;
+      secondCard = null;
     } else {
       if (isNaN(cardIdx) || ignoreClicks ||
-      cards[cardIdx] === firstCard) return;
+        cards[cardIdx] === firstCard) return;
       secondCard = card;
     }
   } else {
@@ -124,9 +124,9 @@ function startTimer() {
 
 function resetGame() {
   resetSound.play();
-  setTimeout(function(){
+  setTimeout(function () {
     startGame();
- }, 200);
+  }, 200);
 }
 
 function gameOver() {
