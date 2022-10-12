@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: pink;
-    background-image: url("img/bg.jpg");
+    background-image: url("/img/bg.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -31,7 +31,7 @@ body {
 
 .start-modal-container {
     background-color: pink;
-    background-image: url("img/bg.jpg");
+    background-image: url("/img/bg.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -145,24 +145,18 @@ h1 {
 
 main {
     display: grid;
-    grid-template-columns: repeat(5, 13vmin);
-    grid-template-rows: repeat(4, 14vmin);
+    grid-template-columns: repeat(5, 14vmin);
+    grid-template-rows: repeat(4, 17vmin);
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-    opacity: 60%;
-    pointer-events: none;
-}
-
-main:disabled {
-    opacity: 50%;
-    pointer-events: none;
+    margin-bottom: 5vmin;
 }
 
 main img {
     margin: auto;
-    width: 10vmin;
+    width: 12vmin;
     cursor: pointer;
 }
 
@@ -173,12 +167,13 @@ main img:hover {
 
 footer {
     font-family: 'press start 2p', sans-serif;
-    font-size: 1vmin;
-    color: white;
+    font-size: .8vmin;
+    letter-spacing: 3px;
+    color: #D8DAEE;
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: .5vmin;
+    height: 2vmin;
     text-align: center;
 }
   
@@ -204,6 +199,9 @@ footer {
 @media screen and (max-width: 850px) {
 
     main {
+        grid-template-columns: repeat(5, 17vmin);
+        grid-template-rows: repeat(4, 23vmin);
+        margin-bottom: 0vmin;
         padding: 3vmin;
     }
 
@@ -212,9 +210,8 @@ footer {
         margin: 0;
     }
 
-    main {
-        grid-template-columns: repeat(5, 17vmin);
-        grid-template-rows: repeat(4, 20vmin);
+    main img {
+        width: 17vmin;
     }
     
     #button {
@@ -225,11 +222,48 @@ footer {
         font-size: 5vmin;
     }
 
-    .timer, h1 {
-        font-size: 2vmin;
+    .timer, h2 {
+        font-size: 2.5vmin;
     }
 
     button img {
         width: 7vmin;
+    }
+
+    #reset, #play-again, #start-game {
+        font-size: 5vmin;
+    }
+
+    .reset-modal p {
+        margin-bottom: 3vmin;
+    }
+
+    .reset-modal p, .win-modal p, .start-modal p {
+        font-size: 7vmin;
+    }
+
+    .start-modal h1 {
+        font-size: 6vmin;
+    }
+
+    .start-modal p {
+        font-size: 3.5vmin;
+        width: 90vmin;
+    }
+
+    .start-modal img {
+        width: 50vmin;
+    }
+
+    .reset-modal img {
+        width: 50vmin;
+    }
+
+    .win-modal img {
+        width: 90vmin;
+    }
+
+    footer {
+        font-size: 1.5vmin;
     }
   }

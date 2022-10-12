@@ -1,26 +1,26 @@
 // constants //
 var SOURCE_CARDS = [
-  { img: 'img/mercury.png', matched: false },
-  { img: 'img/venus.png', matched: false },
-  { img: 'img/moon.png', matched: false },
-  { img: 'img/chibi.png', matched: false },
-  { img: 'img/mars.png', matched: false },
-  { img: 'img/jupiter.png', matched: false },
-  { img: 'img/saturn.png', matched: false },
-  { img: 'img/neptune.png', matched: false },
-  { img: 'img/uranus.png', matched: false },
-  { img: 'img/pluto.png', matched: false }
+  { img: '/img/mercury.png', matched: false },
+  { img: '/img/venus.png', matched: false },
+  { img: '/img/moon.png', matched: false },
+  { img: '/img/chibi.png', matched: false },
+  { img: '/img/mars.png', matched: false },
+  { img: '/img/jupiter.png', matched: false },
+  { img: '/img/saturn.png', matched: false },
+  { img: '/img/neptune.png', matched: false },
+  { img: '/img/uranus.png', matched: false },
+  { img: '/img/pluto.png', matched: false }
 ];
 
 const CARD_BACK = 'img/staff.png';
 
 // variables //
 let cards, firstCard, secondCard, ignoreClicks;
-const startSound = new Audio('mp3/start.mp3');
-const clickSound = new Audio('mp3/ding.wav');
-const matchSound = new Audio('mp3/correct.mp3');
-const resetSound = new Audio('mp3/reset.mp3')
-const loseSound = new Audio('mp3/lose.mp3')
+const startSound = new Audio('/mp3/start.mp3');
+const clickSound = new Audio('/mp3/ding.wav');
+const matchSound = new Audio('/mp3/correct.mp3');
+const resetSound = new Audio('/mp3/reset.mp3')
+const loseSound = new Audio('/mp3/lose.mp3')
 let seconds;
 
 
@@ -86,12 +86,10 @@ function handleChoice(evt) {
   const card = cards[cardIdx];
   if (firstCard) {
     if (secondCard) {
-      chances--;
       if (firstCard.img === secondCard.img) {
         // correct match
         firstCard.matched = secondCard.matched = true;
         matchSound.play();
-        ignoreClicks = true;
       }
       firstCard = null;
       secondCard = null;
@@ -99,6 +97,10 @@ function handleChoice(evt) {
       if (isNaN(cardIdx) || ignoreClicks ||
         cards[cardIdx] === firstCard) return;
       secondCard = card;
+      chances--;
+      if (chances <= 0) {
+        gameOver();
+      }
     }
   } else {
     firstCard = card;
@@ -111,8 +113,6 @@ function startGame() {
   playModal.classList.add('hidden');
   resetModal.classList.remove('show');
   startTimer();
-  document.querySelector('main').style.pointerEvents = 'auto';
-  document.querySelector('main').style.opacity = '100%';
 }
 
 function startTimer() {
@@ -141,10 +141,8 @@ function resetGame() {
 // }
 
 function gameOver() {
-  if (chances || seconds <= 0) {
-    loseSound.play();
-    resetModal.classList.add('show');
-    timerEl.innerHTML = ``;
-    msgEl.innerHTML = ``;
-  }
+  loseSound.play();
+  resetModal.classList.add('show');
+  timerEl.innerHTML = ``;
+  msgEl.innerHTML = ``;
 }
