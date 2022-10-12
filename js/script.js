@@ -1,18 +1,18 @@
 // constants //
 var SOURCE_CARDS = [
-  { img: 'https://i.imgur.com/ENXZfgZ.png', matched: false },
-  { img: 'https://i.imgur.com/eJsnj4q.png', matched: false },
-  { img: 'https://i.imgur.com/xPrKwEx.png', matched: false },
-  { img: 'https://i.imgur.com/oDyA2Q8.png', matched: false },
-  { img: 'https://i.imgur.com/7ry0qGw.png', matched: false },
-  { img: 'https://i.imgur.com/Pq32aAQ.png', matched: false },
-  { img: 'https://i.imgur.com/vIbyQqm.png', matched: false },
-  { img: 'https://i.imgur.com/RieUif3.png', matched: false },
-  { img: 'https://i.imgur.com/bcFIW8m.png', matched: false },
-  { img: 'https://i.imgur.com/7FTE8DS.png', matched: false }
+  { img: '/img/mercury.png', matched: false },
+  { img: '/img/venus.png', matched: false },
+  { img: '/img/moon.png', matched: false },
+  { img: '/img/chibi.png', matched: false },
+  { img: '/img/mars.png', matched: false },
+  { img: '/img/jupiter.png', matched: false },
+  { img: '/img/saturn.png', matched: false },
+  { img: '/img/neptune.png', matched: false },
+  { img: '/img/uranus.png', matched: false },
+  { img: '/img/pluto.png', matched: false }
 ];
 
-const CARD_BACK = 'https://i.imgur.com/rvG5lyo.png';
+const CARD_BACK = '/img/staff.png';
 
 // variables //
 let cards, firstCard, secondCard, ignoreClicks;
@@ -20,20 +20,25 @@ const startSound = new Audio('mp3/start.mp3');
 const clickSound = new Audio('mp3/ding.wav');
 const matchSound = new Audio('mp3/correct.mp3');
 const resetSound = new Audio('mp3/reset.mp3')
+const loseSound = new Audio('mp3/lose.mp3')
 let seconds;
 
 
 // cached elements //
 const counter = document.getElementById('counter');
-const playBtn = document.getElementById('start');
-const msgEl = document.querySelector('h1');
-const modalEl = document.getElementById('modal-container');
+const playBtn = document.getElementById('start-game');
 const resetBtn = document.getElementById('reset');
+const playAgainBtn = document.getElementById('play-again');
+const msgEl = document.querySelector('h2');
+const timerEl = document.getElementById('counter');
+const resetModal = document.getElementById('reset-modal-container');
+const playModal = document.getElementById('start-modal-container');
+const winModal = document.getElementById('win-modal-container');
 
 // event listeners //
 document.querySelector('main').addEventListener('click', handleChoice);
 resetBtn.addEventListener('click', resetGame);
-document.getElementById('start').addEventListener("click", startGame);
+document.getElementById('start-game').addEventListener("click", startGame);
 
 // functions //
 init();
@@ -56,6 +61,7 @@ function render() {
     const src = (card.matched || card === firstCard || card === secondCard) ? card.img : CARD_BACK;
     imgEl.src = src;
   });
+  msgEl.innerHTML = `chances: ${chances}/12`;
 }
 
 function getShuffledCards() {
@@ -85,6 +91,7 @@ function handleChoice(evt) {
         // correct match
         firstCard.matched = secondCard.matched = true;
         matchSound.play();
+        ignoreClicks = true;
       }
       firstCard = null;
       secondCard = null;
@@ -101,11 +108,11 @@ function handleChoice(evt) {
 
 function startGame() {
   startSound.play();
+  playModal.classList.add('hidden');
+  resetModal.classList.remove('show');
   startTimer();
-  playBtn.remove();
   document.querySelector('main').style.pointerEvents = 'auto';
   document.querySelector('main').style.opacity = '100%';
-  msgEl.innerHTML = `chances: ${chances}/12`;
 }
 
 function startTimer() {
@@ -116,7 +123,7 @@ function startTimer() {
     if (seconds > 0) {
       setTimeout(tick, 1000);
     } else {
-      modalEl.classList.add('show');
+      gameOver();
     }
   }
   tick();
@@ -124,13 +131,20 @@ function startTimer() {
 
 function resetGame() {
   resetSound.play();
-  setTimeout(function () {
-    startGame();
-  }, 200);
+  init();
+  render();
+  startGame();
 }
 
+// function getWinner() {
+
+// }
+
 function gameOver() {
-  if (chances || seconds === 0) {
-    modalEl.classList.add('show');
+  if (chances || seconds <= 0) {
+    loseSound.play();
+    resetModal.classList.add('show');
+    timerEl.innerHTML = ``;
+    msgEl.innerHTML = ``;
   }
 }

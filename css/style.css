@@ -9,14 +9,14 @@ body {
     justify-content: center;
     align-items: center;
     background-color: pink;
-    background-image: url("https://i.imgur.com/rIdZlaD.jpg");
+    background-image: url("/img/bg.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     overflow: hidden;
 }
 
-.modal-container {
+.reset-modal-container, .win-modal-container, .start-modal-container {
     position: fixed;
     display: flex;
     align-items: center;
@@ -29,37 +29,64 @@ body {
     opacity: 0;
 }
 
-.modal-container.show {
+.start-modal-container {
+    background-color: pink;
+    background-image: url("/img/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 1;
+    pointer-events: visible;
+}
+
+.reset-modal-container.show, .win-modal-container.show, .start-modal-container.show {
     pointer-events: auto;
     opacity: 1;
 }
 
-.modal {
-    background-color: white;
-    background-image: url("https://i.pinimg.com/originals/0d/ff/12/0dff12883e37d102981a1cbf01401a64.png");
-    background-size: 150%;
-    background-position: center;
-    width: 40vmin;
-    height: 30vmin;
-    max-width: 40vmin;
-    max-height: 30vmin;
-    border-radius: 40%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    padding: 30px 50px;
-    max-width: 100%;
-    text-align: center;
-    animation: zoom 3s ease infinite;
+.start-modal-container.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
-.modal p {
-    margin-top: 8vmin;
+.reset-modal, .win-modal, .start-modal {
+    background: none;
+    border: none;
+    text-align: center;
+    animation: modal-zoom 3s ease infinite;
+}
+
+.reset-modal img {
+    width: 25vmin;
+}
+
+.start-modal img {
+    width: 30vmin;
+}
+
+.reset-modal p, .win-modal p, .start-modal p {
+    margin-top: -3vmin;
     font-family: 'press start 2p', sans-serif;
-    font-size: 3vmin;
+    font-size: 2.5vmin;
     color: white;
     -webkit-text-stroke: 2px #A572D9;
 }
 
-#reset {
+.win-modal p {
+    margin-top: 0;
+    font-size: 4vmin;
+    margin-bottom: 2vmin;
+}
+
+.start-modal p {
+    font-size: 1.75vmin;
+    -webkit-text-stroke: 1px #A572D9;
+    width: 50vmin;
+    padding: 3vmin;
+    line-height: 130%;
+}
+
+#reset, #play-again, #start-game {
     color: white;
     font-family: 'press start 2p', sans-serif;
     font-size: 2vmin;
@@ -70,13 +97,30 @@ body {
     padding: 5px;
 }
 
-#reset:hover {
+#start-game {
+    margin-top: -3vmin;
+    font-size: 2.5vmin;
+}
+
+#reset:hover, #play-again:hover {
     transform: scale(1.2);
     transition: transform 150ms;
     opacity: 100%;
 }
 
-.timer, h1 {
+button {
+    cursor: pointer;
+}
+
+h1 {
+    margin-top: -1.5vmin;
+    font-family: 'press start 2p', sans-serif;
+    font-size: 3vmin;
+    color: white;
+    -webkit-text-stroke: 1px #A572D9;
+}
+
+.timer, h2 {
     color: #E67FD1;
     font-family: 'press start 2p', sans-serif;
     font-size: 1.2vmin;
@@ -97,13 +141,12 @@ body {
 
 #logo img {
     width: 55vmin;
-    margin-top: 3vmin;
 }
 
 main {
     display: grid;
-    grid-template-columns: repeat(5, 14vmin);
-    grid-template-rows: repeat(4, 15vmin);
+    grid-template-columns: repeat(5, 13vmin);
+    grid-template-rows: repeat(4, 14vmin);
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -118,7 +161,8 @@ main:disabled {
 }
 
 main img {
-    width: 75%;
+    margin: auto;
+    width: 10vmin;
     cursor: pointer;
 }
 
@@ -127,10 +171,15 @@ main img:hover {
     transition: transform 150ms;
 }
 
-button {
-    font-size: 3vmin;
-    cursor: pointer;
-    margin-bottom: -3.5vmin;
+footer {
+    font-family: 'press start 2p', sans-serif;
+    font-size: 1vmin;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: .5vmin;
+    text-align: center;
 }
   
 
@@ -145,6 +194,12 @@ button {
     50% { transform: scale(1); }
     to { transform: scale(.75); }
   }
+
+@keyframes modal-zoom {
+    from { transform: scale(.90); }
+    50% { transform: scale(1); }
+    to { transform: scale(.90); }
+}
 
 @media screen and (max-width: 850px) {
 
