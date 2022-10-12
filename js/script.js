@@ -1,26 +1,26 @@
 // constants //
 var SOURCE_CARDS = [
-  { img: 'img/mercury.png', matched: false },
-  { img: 'img/venus.png', matched: false },
-  { img: 'img/moon.png', matched: false },
-  { img: 'img/chibi.png', matched: false },
-  { img: 'img/mars.png', matched: false },
-  { img: 'img/jupiter.png', matched: false },
-  { img: 'img/saturn.png', matched: false },
-  { img: 'img/neptune.png', matched: false },
-  { img: 'img/uranus.png', matched: false },
-  { img: 'img/pluto.png', matched: false }
+  { img: '/img/mercury.png', matched: false },
+  { img: '/img/venus.png', matched: false },
+  { img: '/img/moon.png', matched: false },
+  { img: '/img/chibi.png', matched: false },
+  { img: '/img/mars.png', matched: false },
+  { img: '/img/jupiter.png', matched: false },
+  { img: '/img/saturn.png', matched: false },
+  { img: '/img/neptune.png', matched: false },
+  { img: '/img/uranus.png', matched: false },
+  { img: '/img/pluto.png', matched: false }
 ];
 
 const CARD_BACK = 'img/staff.png';
 
 // variables //
 let cards, firstCard, secondCard, ignoreClicks;
-const startSound = new Audio('mp3/start.mp3');
-const clickSound = new Audio('mp3/ding.wav');
-const matchSound = new Audio('mp3/correct.mp3');
-const resetSound = new Audio('mp3/reset.mp3')
-const loseSound = new Audio('mp3/lose.mp3')
+const startSound = new Audio('/mp3/start.mp3');
+const clickSound = new Audio('/mp3/ding.wav');
+const matchSound = new Audio('/mp3/correct.mp3');
+const resetSound = new Audio('/mp3/reset.mp3')
+const loseSound = new Audio('/mp3/lose.mp3')
 let seconds;
 
 
