@@ -74,9 +74,9 @@ function getShuffledCards() {
 
 // update all impacted state, then call render()
 function handleChoice(evt) {
+  clickSound.play();
   const cardIdx = parseInt(evt.target.id);
   if (isNaN(cardIdx) || ignoreClicks) return;
-  clickSound.play();
   const card = cards[cardIdx];
   if (firstCard) {
     if (secondCard) {
@@ -116,8 +116,7 @@ function startTimer() {
     if (seconds > 0) {
       setTimeout(tick, 1000);
     } else {
-      alert("GAME OVER");
-      resetGame();
+      modalEl.classList.add('show');
     }
   }
   tick();
@@ -126,7 +125,7 @@ function startTimer() {
 function resetGame() {
   resetSound.play();
   setTimeout(function(){
-    window.location.reload();
+    startGame();
  }, 200);
 }
 

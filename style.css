@@ -24,8 +24,14 @@ body {
     width: 200vh;
     height: 200vh;
     background-color: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    z-index: 1000;
     opacity: 0;
-    
+}
+
+.modal-container.show {
+    pointer-events: auto;
+    opacity: 1;
 }
 
 .modal {
@@ -37,7 +43,7 @@ body {
     height: 30vmin;
     max-width: 40vmin;
     max-height: 30vmin;
-    border-radius: 50%;
+    border-radius: 40%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 30px 50px;
     max-width: 100%;
@@ -73,7 +79,7 @@ body {
 .timer, h1 {
     color: #E67FD1;
     font-family: 'press start 2p', sans-serif;
-    font-size: 1.1vmin;
+    font-size: 1.2vmin;
 }
 
 .timer {
@@ -170,11 +176,5 @@ button {
 
     button img {
         width: 7vmin;
-    }
-    #reset {
-        font-size: 2vmin;
-        opacity: 100%;
-        animation: zoom 2s ease infinite;
-        -webkit-text-stroke: .5px #A572D9;
     }
   }
