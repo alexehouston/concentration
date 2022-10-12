@@ -15,13 +15,13 @@ var SOURCE_CARDS = [
 const CARD_BACK = 'img/staff.png';
 
 // variables //
-let cards, firstCard, secondCard, ignoreClicks;
+let cards, firstCard, secondCard, ignoreClicks, matches, seconds;
 const startSound = new Audio('mp3/start.mp3');
 const clickSound = new Audio('mp3/ding.wav');
 const matchSound = new Audio('mp3/correct.mp3');
 const resetSound = new Audio('mp3/reset.mp3')
 const loseSound = new Audio('mp3/lose.mp3')
-let seconds;
+const winSound = new Audio('mp3/win.mp3');
 
 
 // cached elements //
@@ -39,6 +39,8 @@ const winModal = document.getElementById('win-modal-container');
 document.querySelector('main').addEventListener('click', handleChoice);
 resetBtn.addEventListener('click', resetGame);
 document.getElementById('start-game').addEventListener("click", startGame);
+playAgainBtn.addEventListener('click', resetGame);
+
 
 // functions //
 init();
@@ -51,7 +53,7 @@ function init() {
   ignoreClicks = false;
   seconds = 60;
   chances = 12;
-  winner = null;
+  matches = 0;
   render();
 }
 
@@ -89,7 +91,10 @@ function handleChoice(evt) {
       if (firstCard.img === secondCard.img) {
         // correct match
         firstCard.matched = secondCard.matched = true;
-        matchSound.play();
+        matches++;
+        if (matches >= 10) {
+          winGame();
+        }
       }
       firstCard = null;
       secondCard = null;
@@ -133,12 +138,13 @@ function resetGame() {
   resetSound.play();
   init();
   render();
-  startGame();
+  startTimer();
 }
 
-// function getWinner() {
-
-// }
+function winGame() {
+    winSound.play();
+    winModal.classList.add('show');
+}
 
 function gameOver() {
   loseSound.play();

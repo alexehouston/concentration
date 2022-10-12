@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: pink;
-    background-image: url('/img/bg.jpg');
+    background-image: url('img/bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -23,7 +23,7 @@ body {
     justify-content: center;
     width: 200vh;
     height: 200vh;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
     pointer-events: none;
     z-index: 1000;
     opacity: 0;
@@ -31,7 +31,7 @@ body {
 
 .start-modal-container {
     background-color: pink;
-    background-image: url('/img/bg.jpg');
+    background-image: url('img/bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
