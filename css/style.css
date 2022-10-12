@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: pink;
-    background-image: url("/img/bg.jpg");
+    background-image: url('/img/bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -31,7 +31,7 @@ body {
 
 .start-modal-container {
     background-color: pink;
-    background-image: url("/img/bg.jpg");
+    background-image: url('/img/bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
