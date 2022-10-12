@@ -15,7 +15,7 @@ var SOURCE_CARDS = [
 const CARD_BACK = 'img/staff.png';
 
 // variables //
-let cards, firstCard, secondCard, ignoreClicks, matches, seconds;
+let cards, selectedCard, ignoreClicks, matches, seconds;
 const startSound = new Audio('mp3/start.mp3');
 const clickSound = new Audio('mp3/ding.wav');
 const matchSound = new Audio('mp3/correct.mp3');
@@ -48,19 +48,19 @@ init();
 // initialize all state, then call render()
 function init() {
   cards = getShuffledCards();
-  firstCard = null;
-  secondCard = null;
+  selectedCard = null;
   ignoreClicks = false;
   seconds = 60;
   chances = 12;
   matches = 0;
+  winner = null;
   render();
 }
 
 function render() {
   cards.forEach(function (card, idx) {
     const imgEl = document.getElementById(idx);
-    const src = (card.matched || card === firstCard || card === secondCard) ? card.img : CARD_BACK;
+    const src = (card.matched || card === selectedCard) ? card.img : CARD_BACK;
     imgEl.src = src;
   });
   msgEl.innerHTML = `chances: ${chances}/12`;
@@ -80,35 +80,38 @@ function getShuffledCards() {
   return cards;
 }
 
-// update all impacted state, then call render()
 function handleChoice(evt) {
-  clickSound.play();
   const cardIdx = parseInt(evt.target.id);
-  if (isNaN(cardIdx) || ignoreClicks) return;
   const card = cards[cardIdx];
-  if (firstCard) {
-    if (secondCard) {
-      if (firstCard.img === secondCard.img) {
-        // correct match
-        firstCard.matched = secondCard.matched = true;
-        matches++;
-        if (matches >= 10) {
-          winGame();
-        }
-      }
-      firstCard = null;
-      secondCard = null;
+  if (ignoreClicks || isNaN(cardIdx) || card.matched) return;
+  clickSound.play();
+  if (selectedCard && selectedCard === card) {
+    selectedCard = null;
+  } else if (selectedCard) {
+    if (card.img === selectedCard.img) {
+      card.matched = selectedCard.matched = true;
+      matchSound.play();
+      selectedCard = null;
+      winner = cards.every(card => card.matched);
     } else {
-      if (isNaN(cardIdx) || ignoreClicks ||
-        cards[cardIdx] === firstCard) return;
-      secondCard = card;
-      chances--;
-      if (chances <= 0) {
-        gameOver();
-      }
+      ignoreClicks = true;
+      card.matched = true;
+        setTimeout(function () {
+        ignoreClicks = false;
+        selectedCard = null;
+        card.matched = false;
+        render();
+      }, 700);
     }
+    chances--;
   } else {
-    firstCard = card;
+    selectedCard = card;
+  }
+  if (chances <= 0) {
+    gameOver();
+  }
+  if (winner === true) {
+    winGame();
   }
   render();
 }
@@ -116,6 +119,7 @@ function handleChoice(evt) {
 function startGame() {
   startSound.play();
   playModal.classList.add('hidden');
+  winModal.classList.remove('show')
   resetModal.classList.remove('show');
   startTimer();
 }
@@ -127,7 +131,7 @@ function startTimer() {
       "0:" + (seconds < 10 ? "0" : "") + String(seconds);
     if (seconds > 0) {
       setTimeout(tick, 1000);
-    } else {
+    } else if (seconds <= 0) {
       gameOver();
     }
   }
@@ -136,19 +140,26 @@ function startTimer() {
 
 function resetGame() {
   resetSound.play();
+  timerEl.style.visibility = 'visible';
+  msgEl.style.visibility = 'visible';
   init();
   render();
-  startTimer();
+  startGame();
 }
 
 function winGame() {
+    selectedCard = null;
     winSound.play();
     winModal.classList.add('show');
+    timerEl.style.visibility = 'hidden';
+    msgEl.style.visibility = 'hidden';
 }
 
 function gameOver() {
+  selectedCard = null;
   loseSound.play();
+  render();
   resetModal.classList.add('show');
-  timerEl.innerHTML = ``;
-  msgEl.innerHTML = ``;
+  timerEl.style.visibility = 'hidden';
+  msgEl.style.visibility = 'hidden';
 }
