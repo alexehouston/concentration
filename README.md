@@ -10,9 +10,8 @@
 
 ##### Created by Alex E. Houston
 
-[![GitHub Badge](https://img.shields.io/badge/-@profpan396-junglegreen?style=flat&logo=GitHub&logoColor=black)](https://www.github.com/alexehouston/)
-[![Twitter Badge](https://img.shields.io/badge/-@profpan396-skyblue?style=flat&logo=Twitter&logoColor=black)](https://twitter.com/alexehouston)
-[![LinkedIn Badge](https://img.shields.io/badge/-@profpan396-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/alexehouston/)
+[![GitHub Badge](https://img.shields.io/github/followers/alexehouston?label=Follow&style=social)](https://www.github.com/alexehouston/)
+[![Twitter Badge](https://img.shields.io/twitter/follow/alexehouston?label=%40alexehouston&style=social)](https://twitter.com/alexehouston)
 
 ## :pencil: Description
 
