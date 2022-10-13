@@ -22,58 +22,24 @@ is to turn over pairs of matching cards within one minute.
 </div>
 
 <details>
-  <summary>:art: Wireframes</summary>
-
-  |    Description    | Screenshot | 
-  |:-----------------:|-------------| 
-  | <h3>Home Page</h3>| <img
-    src="https://github.com/profpan396/meet-your-classmates/raw/main/public/Screenshots/Homepage.Wireframe.MYC.png"
-    width="700"
-  /> |
-  | <h3 align="center">Profile Page</h3> | <img
-    src="https://github.com/profpan396/meet-your-classmates/raw/main/public/Screenshots/ProfilePage.Wireframe.MYC.png"
-    width="700"
-  /> |
+    <summary>:art: Wireframes</summary>
+        <h3>Feed Page</h3>
+        <img src="pseudocode/wireframe.jpg" width="700">
 </details>
 
-<details open>
-  <summary>:gear: Functionality</summary>
-
-  |   Description | Screenshot | 
-  |:-------------:| -----------|
-  | <h3>Feed Page</h3> | <img
-    src="https://github.com/profpan396/meet-your-classmates/blob/main/public/Screenshots/FeedPage.png?raw=true"
-    width="700"
-  /> |
-  | <h3 align="center">Profile Page</h3> | <img
-    src="https://github.com/profpan396/meet-your-classmates/raw/main/public/Screenshots/ProfilePage.png"
-    width="700"
-  /> |
+<details>
+    <summary>:gear: Functionality</summary>
+        <h3>Home Page</h3>
+        <img src="img/home-screen.jpg" width="700">
+        <h3 align="center">Starter Board</h3>
+        <img src="img/before-screen.jpg" width="700">
+        <h3 align="center">Complete Board</h3>
+        <img src="img/after-screen.jpg"width="700">
+        <h3 align="center">Win Page</h3>
+        <img src="img/win-screen.jpg"width="700">
+        <h3 align="center">Lose Page</h3>
+        <img src="img/lose-screen.jpg"width="700">
 </details>
-
-<!-- <details>
-  <summary>:art: Wireframes</summary>
-
-  |   Description | Screenshot | 
-  |:-------------:| -----------|
-  | <h3>Feed Page</h3> | <img
-    src="pseudocode/wireframe.jpg" width="700">
-  /> |
-</details>
-
-<details open>
-  <summary>:gear: Functionality</summary>
-
-  |    Description    | Screenshot | 
-  |:-----------------:|-------------| 
-  | <h3>Home Page</h3>| <img src="img/home-screen.jpg" width="700">
-  |
-  | <h3 align="center">Starter Board</h3> | <img src="img/before-screen.jpg" width="700"> |
-  | <h3 align="center">Complete Board</h3> | <img src="img/after-screen.jpg"width="700"> |
-  | <h3 align="center">Win Page</h3> | <img src="img/win-screen.jpg"width="700"> |
-  | <h3 align="center">Lose Page</h3> | <img src="img/lose-screen.jpg"width="700"> |
-
-</details> -->
 
 ## :computer: Technologies Used
 
