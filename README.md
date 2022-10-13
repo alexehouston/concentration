@@ -4,7 +4,7 @@
 
 <div id="description" align="center">
 
-# Sailor Moon Concentration
+#
 
 ### [CLICK TO DEMO](https://alexehouston.github.io/concentration/)
 
@@ -27,8 +27,7 @@ is to turn over pairs of matching cards within one minute.
   |   Description | Screenshot | 
   |:-------------:| -----------|
   | <h3>Feed Page</h3> | <img
-    src="pseudocode/wireframe.jpg"
-    width="700"
+    src="pseudocode/wireframe.jpg" width="700">
   /> |
 </details>
 
@@ -38,24 +37,19 @@ is to turn over pairs of matching cards within one minute.
   |    Description    | Screenshot | 
   |:-----------------:|-------------| 
   | <h3>Home Page</h3>| <img
-    src="img/home-screen.jpg"
-    width="700"
+    src="img/home-screen.jpg" width="700">
   /> |
   | <h3 align="center">Starter Board</h3> | <img
-    src="img/before-screen.jpg"
-    width="700"
+    src="img/before-screen.jpg" width="700">
   /> |
   | <h3 align="center">Complete Board</h3> | <img
-    src="img/after-screen.jpg"
-    width="700"
+    src="img/after-screen.jpg"width="700">
   /> |
   | <h3 align="center">Win Page</h3> | <img
-    src="img/win-screen.jpg"
-    width="700"
+    src="img/win-screen.jpg"width="700">
   /> |
   | <h3 align="center">Lose Page</h3> | <img
-    src="img/lose-screen.jpg"
-    width="700"
+    src="img/lose-screen.jpg"width="700">
   /> |
 </details>
 
