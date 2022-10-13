@@ -51,7 +51,7 @@ function init() {
   selectedCard = null;
   ignoreClicks = false;
   seconds = 60;
-  chances = 15;
+  chances = 20;
   matches = 0;
   winner = null;
   render();
@@ -63,7 +63,7 @@ function render() {
     const src = (card.matched || card === selectedCard) ? card.img : CARD_BACK;
     imgEl.src = src;
   });
-  msgEl.innerHTML = `chances: ${chances}/15`;
+  msgEl.innerHTML = `chances: ${chances}/20`;
 }
 
 function getShuffledCards() {
