@@ -105,7 +105,7 @@ button {
     border: none;
     padding: 0;
     outline-offset: 4px;
-    width: 20vmin;
+    width: 25vmin;
 }
 
 button:active .front {
@@ -116,7 +116,6 @@ button:active .front {
     display: block;
     padding: 14px;
     border-radius: 12px;
-    font-size: 2vmin;
     background: #F399D2;
     color: white;
     transform: translateY(-6px);
@@ -225,7 +224,7 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 1vmin;
+    height: 2vmin;
     text-align: center;
 }
 
