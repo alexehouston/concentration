@@ -24,6 +24,36 @@ is to turn over pairs of matching cards within one minute.
 <details>
   <summary>:art: Wireframes</summary>
 
+  |    Description    | Screenshot | 
+  |:-----------------:|-------------| 
+  | <h3>Home Page</h3>| <img
+    src="https://github.com/profpan396/meet-your-classmates/raw/main/public/Screenshots/Homepage.Wireframe.MYC.png"
+    width="700"
+  /> |
+  | <h3 align="center">Profile Page</h3> | <img
+    src="https://github.com/profpan396/meet-your-classmates/raw/main/public/Screenshots/ProfilePage.Wireframe.MYC.png"
+    width="700"
+  /> |
+</details>
+
+<details open>
+  <summary>:gear: Functionality</summary>
+
+  |   Description | Screenshot | 
+  |:-------------:| -----------|
+  | <h3>Feed Page</h3> | <img
+    src="https://github.com/profpan396/meet-your-classmates/blob/main/public/Screenshots/FeedPage.png?raw=true"
+    width="700"
+  /> |
+  | <h3 align="center">Profile Page</h3> | <img
+    src="https://github.com/profpan396/meet-your-classmates/raw/main/public/Screenshots/ProfilePage.png"
+    width="700"
+  /> |
+</details>
+
+<!-- <details>
+  <summary>:art: Wireframes</summary>
+
   |   Description | Screenshot | 
   |:-------------:| -----------|
   | <h3>Feed Page</h3> | <img
@@ -43,7 +73,7 @@ is to turn over pairs of matching cards within one minute.
   | <h3 align="center">Win Page</h3> | <img src="img/win-screen.jpg"width="700"> |
   | <h3 align="center">Lose Page</h3> | <img src="img/lose-screen.jpg"width="700"> |
 
-</details>
+</details> -->
 
 ## :computer: Technologies Used
 
