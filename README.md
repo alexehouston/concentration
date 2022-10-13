@@ -28,15 +28,15 @@ is to turn over pairs of matching cards within one minute.
 <details>
     <summary>:gear: Functionality</summary>
         <h3 align="center">Home Page</h3>
-        <img src="img/home-screen.jpg" width="700" />
+        <img src="img/home-screen.jpg" width="700">
         <h3 align="center">Starter Board</h3>
-        <img src="img/before-screen.jpg" width="700" />
+        <img src="img/before-screen.jpg" width="700">
         <h3 align="center">Complete Board</h3>
-        <img src="img/after-screen.jpg"width="700" />
+        <img src="img/after-screen.jpg"width="700">
         <h3 align="center">Win Page</h3>
-        <img src="img/win-screen.jpg"width="700" />
+        <img src="img/win-screen.jpg"width="700">
         <h3 align="center">Lose Page</h3>
-        <img src="img/lose-screen.jpg"width="700" />
+        <img src="img/lose-screen.jpg"width="700">
 </details>
 
 ## :computer: Technologies Used
