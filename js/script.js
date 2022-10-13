@@ -51,7 +51,7 @@ function init() {
   selectedCard = null;
   ignoreClicks = false;
   seconds = 60;
-  chances = 12;
+  chances = 15;
   matches = 0;
   winner = null;
   render();
@@ -63,7 +63,7 @@ function render() {
     const src = (card.matched || card === selectedCard) ? card.img : CARD_BACK;
     imgEl.src = src;
   });
-  msgEl.innerHTML = `chances: ${chances}/12`;
+  msgEl.innerHTML = `chances: ${chances}/15`;
 }
 
 function getShuffledCards() {
@@ -96,6 +96,7 @@ function handleChoice(evt) {
     } else {
       ignoreClicks = true;
       card.matched = true;
+      chances--;
         setTimeout(function () {
         ignoreClicks = false;
         selectedCard = null;
@@ -103,7 +104,6 @@ function handleChoice(evt) {
         render();
       }, 700);
     }
-    chances--;
   } else {
     selectedCard = card;
   }
@@ -124,6 +124,14 @@ function startGame() {
   startTimer();
 }
 
+function resetGame() {
+  resetModal.classList.remove('show');
+  init();
+  timerEl.style.visibility = 'visible';
+  msgEl.style.visibility = 'visible';
+  startGame();
+}
+
 function startTimer() {
   function tick() {
     seconds--;
@@ -136,10 +144,6 @@ function startTimer() {
     }
   }
   tick();
-}
-
-function resetGame() {
-  setTimeout(tick, 1000);
 }
 
 function winGame() {
