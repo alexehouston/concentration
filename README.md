@@ -36,43 +36,34 @@ is to turn over pairs of matching cards within one minute.
 
   |    Description    | Screenshot | 
   |:-----------------:|-------------| 
-  | <h3>Home Page</h3>| <img
-    src="img/home-screen.jpg" width="700">
-  /> |
-  | <h3 align="center">Starter Board</h3> | <img
-    src="img/before-screen.jpg" width="700">
-  /> |
-  | <h3 align="center">Complete Board</h3> | <img
-    src="img/after-screen.jpg"width="700">
-  /> |
-  | <h3 align="center">Win Page</h3> | <img
-    src="img/win-screen.jpg"width="700">
-  /> |
-  | <h3 align="center">Lose Page</h3> | <img
-    src="img/lose-screen.jpg"width="700">
-  /> |
+  | <h3>Home Page</h3>| <img src="img/home-screen.jpg" width="700">
+  |
+  | <h3 align="center">Starter Board</h3> | <img src="img/before-screen.jpg" width="700"> |
+  | <h3 align="center">Complete Board</h3> | <img src="img/after-screen.jpg"width="700"> |
+  | <h3 align="center">Win Page</h3> | <img src="img/win-screen.jpg"width="700"> |
+  | <h3 align="center">Lose Page</h3> | <img src="img/lose-screen.jpg"width="700"> |
+
 </details>
 
 ## :computer: Technologies Used
 
-![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
 ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
 ![CSS3](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css3)
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
+
 
 <h2>:fire: Getting Started</h2>
 
 <h3>:calling: Instructions</h3>
 <details open>
-  <summary>How to Create a Post</summary>
+  <summary>How to Play</summary>
   <ol>
     <li>
-      Type in your answers to each of the 3 randomly-generated mini-survey
-      questions.
+      X
     </li>
     <li>
-      Click on "Add Survey" to post your responses so others may see them.
+      X
     </li>
-    <li>Click on the "X" in the bottom-right corner to delete a post.</li>
   </ol>
 </details>
 
@@ -80,7 +71,7 @@ is to turn over pairs of matching cards within one minute.
 
 <details open>
   <summary>Deployed Link</summary>
-  <a href="https://alexehouston.github.io/concentration/"></a>
+  <a href="https://alexehouston.github.io/concentration/">Sailor Moon Concentration</a>
 </details>
 
 ## :fast_forward: Next Steps
