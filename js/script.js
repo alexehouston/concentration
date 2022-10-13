@@ -61,6 +61,7 @@ function render() {
     imgEl.src = src;
   });
   chancesEl.innerHTML = `chances: ${chances}/20`;
+  timerEl.innerHTML = `0:${seconds}`;
 }
 
 function getShuffledCards() {
@@ -111,6 +112,9 @@ function handleChoice(evt) {
   if (winner === true) {
     winGame();
   }
+  if (seconds <= 0) {
+    gameOver();
+  }
   render();
 }
 
@@ -119,42 +123,41 @@ function startGame() {
   playModal.classList.add('hidden');
   winModal.classList.remove('show')
   resetModal.classList.remove('show');
+  init();
   startTimer();
 }
 
 function startTimer() {
   function tick() {
     seconds--;
-    timerEl.innerHTML =
-      "0:" + (seconds < 10 ? "0" : "") + String(seconds);
-    if (seconds > 0) {
-      setTimeout(tick, 1000);
-    } else if (seconds <= 0) {
-      gameOver();
-    }
+    render(seconds);
   }
-  tick();
+  timeCount = setInterval(tick, 1000);
+}
+
+function resetTimer() {
+  clearInterval(timeCount);
+  seconds = 60;
+  render(seconds);
 }
 
 function winGame() {
-    selectedCard = null;
-    seconds = 1000;
     winSound.play();
+    render();
     winModal.classList.add('show');
     timerEl.style.visibility = 'hidden';
     chancesEl.style.visibility = 'hidden';
 }
 
 function resetGame() {
+  resetTimer();
+  startGame();
   resetModal.classList.remove('show');
   timerEl.style.visibility = 'visible';
-  msgEl.style.visibility = 'visible';
-  init();
-  startGame();
+  chancesEl.style.visibility = 'visible';
 }
 
 function gameOver() {
-  selectedCard = null;
   loseSound.play();
   render();
   resetModal.classList.add('show');
