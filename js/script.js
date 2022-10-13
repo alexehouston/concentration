@@ -14,8 +14,6 @@ var SOURCE_CARDS = [
 
 const CARD_BACK = 'img/staff.png';
 
-// variables //
-let cards, selectedCard, ignoreClicks, matches, seconds;
 const startSound = new Audio('mp3/start.mp3');
 const clickSound = new Audio('mp3/ding.wav');
 const matchSound = new Audio('mp3/correct.mp3');
@@ -24,13 +22,11 @@ const loseSound = new Audio('mp3/lose.mp3')
 const winSound = new Audio('mp3/win.mp3');
 const wrongSound = new Audio('mp3/wrong.mp3');
 
+// variables //
+let cards, selectedCard, ignoreClicks, matches, seconds, chances;
 
 // cached elements //
-const counter = document.getElementById('counter');
-const playBtn = document.getElementById('start-game');
-const resetBtn = document.getElementById('reset');
-const playAgainBtn = document.getElementById('play-again');
-const msgEl = document.querySelector('h2');
+const chancesEl = document.querySelector('h2');
 const timerEl = document.getElementById('counter');
 const resetModal = document.getElementById('reset-modal-container');
 const playModal = document.getElementById('start-modal-container');
@@ -38,9 +34,9 @@ const winModal = document.getElementById('win-modal-container');
 
 // event listeners //
 document.querySelector('main').addEventListener('click', handleChoice);
-resetBtn.addEventListener('click', resetGame);
+document.getElementById('reset').addEventListener('click', resetGame);
 document.getElementById('start-game').addEventListener("click", startGame);
-playAgainBtn.addEventListener('click', resetGame);
+document.getElementById('play-again').addEventListener('click', resetGame);
 
 
 // functions //
@@ -64,7 +60,7 @@ function render() {
     const src = (card.matched || card === selectedCard) ? card.img : CARD_BACK;
     imgEl.src = src;
   });
-  msgEl.innerHTML = `chances: ${chances}/20`;
+  chancesEl.innerHTML = `chances: ${chances}/20`;
 }
 
 function getShuffledCards() {
@@ -126,18 +122,10 @@ function startGame() {
   startTimer();
 }
 
-function resetGame() {
-  resetModal.classList.remove('show');
-  timerEl.style.visibility = 'visible';
-  msgEl.style.visibility = 'visible';
-  init();
-  startGame();
-}
-
 function startTimer() {
   function tick() {
     seconds--;
-    counter.innerHTML =
+    timerEl.innerHTML =
       "0:" + (seconds < 10 ? "0" : "") + String(seconds);
     if (seconds > 0) {
       setTimeout(tick, 1000);
@@ -154,7 +142,15 @@ function winGame() {
     winSound.play();
     winModal.classList.add('show');
     timerEl.style.visibility = 'hidden';
-    msgEl.style.visibility = 'hidden';
+    chancesEl.style.visibility = 'hidden';
+}
+
+function resetGame() {
+  resetModal.classList.remove('show');
+  timerEl.style.visibility = 'visible';
+  msgEl.style.visibility = 'visible';
+  init();
+  startGame();
 }
 
 function gameOver() {
@@ -163,5 +159,5 @@ function gameOver() {
   render();
   resetModal.classList.add('show');
   timerEl.style.visibility = 'hidden';
-  msgEl.style.visibility = 'hidden';
+  chancesEl.style.visibility = 'hidden';
 }
