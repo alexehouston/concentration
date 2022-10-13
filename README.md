@@ -67,7 +67,7 @@ is to turn over pairs of matching cards within one minute.
 
 <details open>
   <summary>Deployed Link</summary>
-  <a href="https://alexehouston.github.io/concentration/">Sailor Moon Concentration</a>
+  Sailor Moon Concentration (<a href="https://alexehouston.github.io/concentration"></a>)
 </details>
 
 ## :fast_forward: Next Steps
