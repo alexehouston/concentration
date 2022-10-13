@@ -26,7 +26,7 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     pointer-events: none;
     z-index: 1000;
-    /* opacity: 0;  */
+    opacity: 0; 
 }
 
 .start-modal-container {
@@ -35,7 +35,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    /* opacity: 1; */
+    opacity: 1;
     pointer-events: visible;
 }
 
