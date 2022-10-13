@@ -22,6 +22,7 @@ const matchSound = new Audio('mp3/correct.mp3');
 const resetSound = new Audio('mp3/reset.mp3')
 const loseSound = new Audio('mp3/lose.mp3')
 const winSound = new Audio('mp3/win.mp3');
+const wrongSound = new Audio('mp3/wrong.mp3');
 
 
 // cached elements //
@@ -101,8 +102,9 @@ function handleChoice(evt) {
         ignoreClicks = false;
         selectedCard = null;
         card.matched = false;
+        wrongSound.play();
         render();
-      }, 700);
+      }, 800);
     }
   } else {
     selectedCard = card;
@@ -126,9 +128,9 @@ function startGame() {
 
 function resetGame() {
   resetModal.classList.remove('show');
-  init();
   timerEl.style.visibility = 'visible';
   msgEl.style.visibility = 'visible';
+  init();
   startGame();
 }
 
@@ -148,6 +150,7 @@ function startTimer() {
 
 function winGame() {
     selectedCard = null;
+    seconds = 1000;
     winSound.play();
     winModal.classList.add('show');
     timerEl.style.visibility = 'hidden';
