@@ -26,7 +26,7 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     pointer-events: none;
     z-index: 1000;
-    opacity: 0;
+    /* opacity: 0;  */
 }
 
 .start-modal-container {
@@ -35,7 +35,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    opacity: 1;
+    /* opacity: 1; */
     pointer-events: visible;
 }
 
@@ -54,22 +54,30 @@ body {
     border: none;
     text-align: center;
     animation: modal-zoom 3s ease infinite;
+    display: grid;
 }
 
 .reset-modal img {
     width: 25vmin;
+    margin: auto;
 }
 
 .start-modal img {
-    width: 30vmin;
+    width: 35vmin;
+    margin: auto;
 }
 
 .reset-modal p, .win-modal p, .start-modal p {
-    margin-top: -3vmin;
+    margin-top: -1vmin;
     font-family: 'press start 2p', sans-serif;
     font-size: 2.5vmin;
-    color: white;
     -webkit-text-stroke: 2px #A572D9;
+    color: white;
+
+}
+
+.reset-modal p {
+    font-size: 3.5vmin;
 }
 
 .win-modal p {
@@ -79,27 +87,85 @@ body {
 }
 
 .start-modal p {
-    font-size: 1.75vmin;
-    -webkit-text-stroke: 1px #A572D9;
-    width: 50vmin;
+    color: #F399D2;
+    -webkit-text-stroke: 0px;
+    font-size: 1.5vmin;
+    width: 40vmin;
     padding: 3vmin;
-    line-height: 130%;
+    line-height: 135%;
+}
+
+button {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    background: #A572D9;
+    border-radius: 12px;
+    border: none;
+    padding: 0;
+    outline-offset: 4px;
+    width: 25vmin;
+}
+
+button:active .front {
+    transform: translateY(-2px);
+}
+
+.front {
+    display: block;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 2vmin;
+    background: #F399D2;
+    color: white;
+    transform: translateY(-6px);
+    font-family: 'press start 2p', sans-serif;
+    font-size: 2vmin;
+}
+
+.front:before {
+    content: '';
+    width: 80px;
+    height: 300%;
+    border: none ;
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translateY(-50%) rotate(35deg);
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.35) 50%, rgba(255,255,255,0) 100%);
+    animation: shine 3s infinite;
 }
 
 #reset, #play-again, #start-game {
-    color: white;
-    font-family: 'press start 2p', sans-serif;
-    font-size: 2vmin;
-    -webkit-text-stroke: 1px pink;
-    border-color: white;
-    background: none;
-    border-radius: 15%;
-    padding: 5px;
+    margin: auto;
 }
 
-#start-game {
-    margin-top: -3vmin;
-    font-size: 2.5vmin;
+.chat-bubble {
+    --triangle-size: 3vmin;
+    background: white;
+    border-radius: 20%;
+    position: relative;
+    animation: enlarge 3s ease;
+    transform-origin: 50% calc(100% + var(--triangle-size));
+}
+
+.chat-bubble:after {
+    border: var(--triangle-size) solid transparent;
+    border-top-color: white;
+    position: absolute;
+    bottom: calc(var(--triangle-size) * -2 + 2px) ;
+    left: calc(50% - var(--triangle-size));  
+}
+
+.chat-bubble:before {
+    content: '';  
+    border: var(--triangle-size) solid transparent;
+    border-top-color: white;
+    position: absolute;
+    bottom: calc(var(--triangle-size) * -2 - .1em + 2px);
+    left: calc(50% - var(--triangle-size));  
 }
 
 #reset:hover, #play-again:hover {
@@ -108,16 +174,11 @@ body {
     opacity: 100%;
 }
 
-button {
-    cursor: pointer;
-}
-
 h1 {
-    margin-top: -1.5vmin;
+    margin-top: 7vmin;
     font-family: 'press start 2p', sans-serif;
     font-size: 3vmin;
-    color: white;
-    -webkit-text-stroke: 1px #A572D9;
+    color: #A572D9;
 }
 
 .timer, h2 {
@@ -128,15 +189,6 @@ h1 {
 
 .timer {
     margin-top: 3vmin;
-}
-
-#start {
-    color: white;
-    -webkit-text-stroke: 3px #A572D9;
-    animation: zoom 1.5s ease infinite;
-    margin-top: 2vmin;
-    background: none;
-    border: none;
 }
 
 #logo img {
@@ -194,6 +246,20 @@ footer {
     from { transform: scale(.90); }
     50% { transform: scale(1); }
     to { transform: scale(.90); }
+}
+
+@keyframes enlarge {
+    0% { transform: scale3d(0.75,0.75,1) rotate3d(0,0,0,0); opacity: 0 }
+    100% { transform: scale3d(1,1,1) rotate3d(0,0,0,0) translate3d(0,0em,0); opacity: 1 }
+}
+
+@keyframes shine {
+    from {
+      left: -50%;
+    }
+    to {
+      left: 100%;
+    }
 }
 
 @media screen and (max-width: 850px) {

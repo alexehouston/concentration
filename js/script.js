@@ -139,12 +139,7 @@ function startTimer() {
 }
 
 function resetGame() {
-  resetSound.play();
-  timerEl.style.visibility = 'visible';
-  msgEl.style.visibility = 'visible';
-  init();
-  render();
-  startGame();
+  setTimeout(tick, 1000);
 }
 
 function winGame() {
