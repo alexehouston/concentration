@@ -11,7 +11,6 @@
 ##### Created by Alex E. Houston
 
 [![GitHub Badge](https://img.shields.io/github/followers/alexehouston?label=Follow&style=social)](https://www.github.com/alexehouston/)
-[![Twitter Badge](https://img.shields.io/twitter/follow/alexehouston?label=%40alexehouston&style=social)](https://twitter.com/alexehouston)
 
 ## :pencil: Description
 
@@ -67,7 +66,7 @@ is to turn over pairs of matching cards within one minute.
 
 <details open>
   <summary>Deployed Link</summary>
-  Sailor Moon Concentration (<a href="https://alexehouston.github.io/concentration"></a>)
+  Sailor Moon Concentration (<a href="https://alexehouston.github.io/concentration">https://alexehouston.github.io/concentration</a>)
 </details>
 
 ## :fast_forward: Next Steps
