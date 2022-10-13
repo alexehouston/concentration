@@ -1,8 +1,6 @@
 <div id="header" align="center">
-
     <img src="img/screenshots.png" width="800" height="400">
-  
-  </div>
+</div>
 
 
 
