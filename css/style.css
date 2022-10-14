@@ -272,6 +272,9 @@ a:hover {
 
 @media screen and (max-width: 850px) {
 
+    body {
+        viewport-fit: cover;
+    }
    main {
         grid-template-columns: repeat(5, 19vmin);
         grid-template-rows: repeat(4, 29vmin);
