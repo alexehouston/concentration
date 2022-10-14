@@ -16,7 +16,9 @@
 
 Concentration is a game in which cards are face down and
 two cards are flipped over each turn. The object of the game
-is to turn over pairs of matching cards within one minute.
+is to turn over all pairs of matching cards.
+
+In my version of Concentration, I've given the game a Sailor Moon twist and the player is given twenty chances to match as many of the Sailor Scouts within a sixty second time limit.
 
 </div>
 
@@ -50,15 +52,10 @@ is to turn over pairs of matching cards within one minute.
 
 <h3>:calling: Instructions</h3>
 <details open>
-  <summary>How to Play</summary>
-  <ol>
-    <li>
-      X
-    </li>
-    <li>
-      X
-    </li>
-  </ol>
+    <summary>How to Play</summary>
+
+    Click or press each wand to reveal the Sailor Scouts underneath until all Sailor Scouts have been revealed.
+
 </details>
 
 <h3>:link: Links</h3>
@@ -74,4 +71,4 @@ is to turn over pairs of matching cards within one minute.
 
 - [ ] Add 3 difficulty levels (decreasing total time + chances as difficulty increases)
 
-- [ ] Add smoother animations when characters are chosen.
+- [ ] Add dynamic animations when characters are selected.
