@@ -48,17 +48,11 @@ In my version of Concentration, I've given the game a Sailor Moon twist and the 
 ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
 
 
-<h2>:fire: Getting Started</h2>
+## :video_game: How To Play
 
-<h3>:calling: Instructions</h3>
-<details open>
-    <summary>How to Play</summary>
+Click or press each wand to reveal the Sailor Scouts underneath until all Sailor Scouts have been revealed.
 
-    Click or press each wand to reveal the Sailor Scouts underneath until all Sailor Scouts have been revealed.
-
-</details>
-
-<h3>:link: Links</h3>
+## link: Links
 
 <details open>
   <summary>Deployed Link</summary>
