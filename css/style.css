@@ -35,7 +35,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    opacity: 1;
+    /* opacity: 1; */
     pointer-events: visible;
 }
 
@@ -197,7 +197,7 @@ h1 {
 main {
     display: grid;
     grid-template-columns: repeat(5, 13vmin);
-    grid-template-rows: repeat(4, 15.5vmin);
+    grid-template-rows: repeat(4, 14vmin);
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -207,7 +207,7 @@ main {
 
 main img {
     margin: auto;
-    width: 11vmin;
+    width: 10vmin;
     cursor: pointer;
 }
 
@@ -275,9 +275,10 @@ a:hover {
     body {
         viewport-fit: cover;
     }
-   main {
+    
+    main {
         grid-template-columns: repeat(5, 19vmin);
-        grid-template-rows: repeat(4, 29vmin);
+        grid-template-rows: repeat(4, 25vmin);
         margin-bottom: 0vmin;
         padding: 3vmin;
     }
@@ -287,7 +288,7 @@ a:hover {
     }
 
     main img {
-        width: 19vmin;
+        width: 18vmin;
     }
 
     .timer, h2 {
