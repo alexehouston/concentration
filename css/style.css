@@ -291,6 +291,10 @@ a:hover {
         font-size: 3vmin;
     }
 
+    .timer {
+        margin-top: 5vmin;
+    }
+
     .front {
         font-size: 4vmin;
     }
