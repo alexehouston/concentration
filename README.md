@@ -52,9 +52,9 @@ In my version of Concentration, I've given the game a Sailor Moon twist and the 
 
 Click or press each wand to reveal the Sailor Scouts underneath until all Sailor Scouts have been revealed.
 
-## link: Links
+## :link: Links
 
-<details open>
+<details>
   <summary>Deployed Link</summary>
   Sailor Moon Concentration (<a href="https://alexehouston.github.io/concentration">https://alexehouston.github.io/concentration</a>)
 </details>
