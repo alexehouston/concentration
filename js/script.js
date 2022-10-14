@@ -113,6 +113,7 @@ function handleChoice(evt) {
     winGame();
   }
   if (seconds <= 0) {
+    resetTimer();
     gameOver();
   }
   render();
@@ -143,7 +144,7 @@ function resetTimer() {
 
 function winGame() {
     winSound.play();
-    render();
+    selectedCard = null;
     winModal.classList.add('show');
     timerEl.style.visibility = 'hidden';
     chancesEl.style.visibility = 'hidden';
@@ -159,7 +160,7 @@ function resetGame() {
 
 function gameOver() {
   loseSound.play();
-  render();
+  selectedCard = null;
   resetModal.classList.add('show');
   timerEl.style.visibility = 'hidden';
   chancesEl.style.visibility = 'hidden';
