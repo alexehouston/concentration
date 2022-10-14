@@ -30,15 +30,15 @@ In my version of Concentration, I've given the game a Sailor Moon twist and the 
 <details>
     <summary>:gear: Functionality</summary>
         <h3 align="center">Home Page</h3>
-        <img src="img/home-screen.jpg" width="700">
+        <p align="center"><img src="img/home-screen.jpg" width="800"></p>
         <h3 align="center">Starter Board</h3>
-        <img src="img/before-screen.jpg" width="700">
+        <p align="center"><img src="img/before-screen.jpg" width="800"></p>
         <h3 align="center">Complete Board</h3>
-        <img src="img/after-screen.jpg"width="700">
+        <p align="center"><img src="img/after-screen.jpg"width="800"></p>
         <h3 align="center">Win Page</h3>
-        <img src="img/win-screen.jpg"width="700">
+        <p align="center"><img src="img/win-screen.jpg"width="800"></p>
         <h3 align="center">Lose Page</h3>
-        <img src="img/lose-screen.jpg"width="700">
+        <p align="center"><img src="img/lose-screen.jpg"width="800"></p>
 </details>
 
 ## :computer: Technologies Used
