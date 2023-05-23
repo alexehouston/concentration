@@ -21,8 +21,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200vh;
-    height: 200vh;
+    width: 100vh;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.6);
     pointer-events: none;
     z-index: 1000;
